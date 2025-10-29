@@ -32,7 +32,7 @@ Below is a quick guide for each option. For more information, you can refer to [
 
 **University Computers:**
 
-- Use [AppsAnywhere](https://appsanywhere.port.ac.uk/sso) to install:
+- Open [AppsAnywhere](https://appsanywhere.port.ac.uk/sso) and launch the following in the given order:
   - Git
   - Flutter And Dart SDK
   - Visual Studio Code
