@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                         color: const Color(0xFF4d2963),
                         child: const Text(
-                          'Big Sale! our essential range has dropped in price! over 20% off! come grab yours while stocks last!',
+                          'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                         ),
