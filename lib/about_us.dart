@@ -45,3 +45,27 @@ class AboutUsPage extends StatelessWidget {
                       ),
                     ),
 
+              const Spacer(),
+
+                    // simple center nav row to mimic the site header
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextButton(onPressed: goHome, child: const Text('Home', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('Shop', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('SALE!', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('UPSU.net', style: TextStyle(color: Colors.black))),
+                      ],
+                    ),
+
+                    const Spacer(),
+                  ],
+                ),
+              ),
