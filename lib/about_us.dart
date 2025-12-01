@@ -91,19 +91,19 @@ class AboutUsPage extends StatelessWidget {
                 child: Center(
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 900),
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8),
 
-                        const Text(
+                        Text(
                           'Welcome to the Union Shop!',
                           style: TextStyle(fontSize: 16, color: Colors.black87),
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
-                        const Text.rich(
+                        Text.rich(
                           TextSpan(
                             children: [
                               TextSpan(
@@ -119,42 +119,42 @@ class AboutUsPage extends StatelessWidget {
                           style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
-                        const Text(
+                        Text(
                           'All online purchases are available for delivery or instore collection!',
                           style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
-                        const Text(
+                        Text(
                           "We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don’t hesitate to contact us at ",
                           style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
                         ),
 
-                        const SizedBox(height: 6),
+                        SizedBox(height: 6),
 
-                        const Text(
+                        Text(
                           'hello@upsu.net',
                           style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey, decoration: TextDecoration.underline),
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
-                        const Text(
+                        Text(
                           'Happy shopping!',
                           style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
-                        const Text(
+                        Text(
                           'The Union Shop & Reception Team',
                           style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
                         ),
 
-                        const SizedBox(height: 40),
+                        SizedBox(height: 40),
                       ],
                     ),
                   ),
@@ -165,11 +165,11 @@ class AboutUsPage extends StatelessWidget {
               Container(
                 color: Colors.white,
                 padding: const EdgeInsets.all(20.0),
-                child: Column(
+                child: const Column(
                   children: [
-                    const Divider(),
-                    const SizedBox(height: 12),
-                    const SizedBox(height: 40),
+                    Divider(),
+                    SizedBox(height: 12),
+                    SizedBox(height: 40),
                   ],
                 ),
               ),
