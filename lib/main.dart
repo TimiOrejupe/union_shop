@@ -256,9 +256,9 @@ class HomeScreen extends StatelessWidget {
                   child: LayoutBuilder(
                     builder: (context, constraints) {
                       final isNarrow = constraints.maxWidth < 800;
-                      Widget openingHours = Column(
+                      Widget openingHours = const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                           SizedBox(height: 12),
                           Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
