@@ -163,14 +163,105 @@ class AboutUsPage extends StatelessWidget {
 
               // Footer section
               Container(
-                color: Colors.white,
-                padding: const EdgeInsets.all(20.0),
-                child: const Column(
-                  children: [
-                    Divider(),
-                    SizedBox(height: 12),
-                    SizedBox(height: 40),
-                  ],
+                color: Colors.grey[50],
+                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final isNarrow = constraints.maxWidth < 800;
+                    Widget openingHours = Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        SizedBox(height: 12),
+                        Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 8),
+                        Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 8),
+                        Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 8),
+                        Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 12),
+                        Text('-------------------------'),
+                        SizedBox(height: 12),
+                        Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                        SizedBox(height: 8),
+                        Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 12),
+                        Text('(Outside of Term Time / Consolidation Weeks)'),
+                        SizedBox(height: 8),
+                        Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 12),
+                        Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+                      ],
+                    );
+
+                    Widget helpInfo = Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 12),
+                        TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
+                        TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
+                        TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                      ],
+                    );
+
+                    Widget latestOffers = Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 44,
+                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(color: Colors.grey.shade400),
+                                ),
+                                child: const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
+                              onPressed: () {},
+                              child: const Text('SUBSCRIBE'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+
+                    if (isNarrow) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          openingHours,
+                          const SizedBox(height: 24),
+                          helpInfo,
+                          const SizedBox(height: 24),
+                          latestOffers,
+                        ],
+                      );
+                    }
+
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(child: openingHours),
+                        const SizedBox(width: 40),
+                        Expanded(child: helpInfo),
+                        const SizedBox(width: 40),
+                        Expanded(child: latestOffers),
+                      ],
+                    );
+                  },
                 ),
               ),
             ],
