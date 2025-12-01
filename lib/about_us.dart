@@ -23,4 +23,25 @@ class AboutUsPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
-              
+              // Header with logo and nav links
+              Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: goHome,
+                      child: Image.network(
+                        'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                        height: 48,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            width: 48,
+                            height: 48,
+                            color: Colors.grey[200],
+                            child: const Icon(Icons.image_not_supported, color: Colors.grey),
+                          );
+                        },
+                      ),
+                    ),
+
