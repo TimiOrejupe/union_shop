@@ -69,3 +69,19 @@ class AboutUsPage extends StatelessWidget {
                   ],
                 ),
               ),
+              // Page title
+              Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 40),
+                child: const Center(
+                  child: Text(
+                    'About us',
+                    style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black87,
+                      height: 1.1,
+                    ),
+                  ),
+                ),
+              ),
