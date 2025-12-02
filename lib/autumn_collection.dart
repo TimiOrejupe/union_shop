@@ -228,3 +228,41 @@ class AutumnCollectionPage extends StatelessWidget {
     );
   }
 }
+class _ProductTile extends StatelessWidget {
+  final String title;
+  final String price;
+  final String imageUrl;
+
+  const _ProductTile({required this.title, required this.price, required this.imageUrl, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 1,
+      child: ClipRRect(
+        borderRadius: BorderRadius.zero,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
+            ),
+            Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
+            Positioned(
+              left: 12,
+              right: 12,
+              bottom: 12,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16)),
+                  const SizedBox(height: 6),
+                  Text(price, style: const TextStyle(color: Colors.white70, fontSize: 14)),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
