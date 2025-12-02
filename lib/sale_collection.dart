@@ -96,8 +96,8 @@ Container(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1100),
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children: [
                       Text('Sale Items', style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700, color: Colors.black87)),
                       SizedBox(height: 12),
                       Text('Discounted prices across our favourite ranges. Limited sizes and stock — shop early!', textAlign: TextAlign.center, style: TextStyle(fontSize: 16, color: Colors.black54)),
@@ -279,6 +279,7 @@ class SaleProductTile extends StatelessWidget {
                   child: Text(badge, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)),
                 ),
               ),
+              // ignore: deprecated_member_use
               Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
               Positioned(
                 left: 12,
