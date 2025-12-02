@@ -106,3 +106,26 @@ Container(
                   ),
                 ),
               ),
+Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1100),
+                  child: GridView.count(
+                    crossAxisCount: crossAxisCount,
+                    crossAxisSpacing: 24,
+                    mainAxisSpacing: 24,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: _products.map((p) {
+                      return SaleProductTile(
+                        title: p['title']!,
+                        imageUrl: p['image']!,
+                        price: p['price']!,
+                        salePrice: p['sale']!,
+                        badge: p['badge']!,
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
+
