@@ -79,10 +79,10 @@ Widget _loginForm(BuildContext context) {
           const SizedBox(height: 12),
           ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Sign in'))),
           const SizedBox(height: 12),
-          Row(children: [
-            const Expanded(child: Divider()),
-            const Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
-            const Expanded(child: Divider()),
+          const Row(children: [
+            Expanded(child: Divider()),
+            Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
+            Expanded(child: Divider()),
           ]),
           const SizedBox(height: 12),
           Row(children: [
@@ -115,10 +115,10 @@ Widget _signupForm(BuildContext context) {
           const SizedBox(height: 16),
           ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Create account'))),
           const SizedBox(height: 12),
-          Row(children: [
-            const Expanded(child: Divider()),
-            const Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
-            const Expanded(child: Divider()),
+          const Row(children: [
+            Expanded(child: Divider()),
+            Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
+            Expanded(child: Divider()),
           ]),
           const SizedBox(height: 12),
           Row(children: [
@@ -144,13 +144,13 @@ Widget _signupForm(BuildContext context) {
                 length: 2,
                 child: Column(
                   children: [
-                    Material(
+                    const Material(
                       color: Colors.white,
                       child: TabBar(
                         labelColor: Colors.black87,
                         unselectedLabelColor: Colors.black54,
-                        indicatorColor: const Color(0xFF4d2963),
-                        tabs: const [Tab(text: 'Login'), Tab(text: 'Sign up')],
+                        indicatorColor: Color(0xFF4d2963),
+                        tabs: [Tab(text: 'Login'), Tab(text: 'Sign up')],
                       ),
                     ),
                     SizedBox(
