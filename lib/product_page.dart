@@ -36,8 +36,8 @@ class _ProductPageState extends State<ProductPage> {
   }
 @override
   Widget build(BuildContext context) {
-    final productTitle = 'Classic Sweatshirt';
-    final productPrice = '£28.00';
+    const productTitle = 'Classic Sweatshirt';
+    const productPrice = '£28.00';
     final width = MediaQuery.of(context).size.width;
     final imageHeight = width > 1000 ? 480.0 : 300.0;
 
@@ -103,9 +103,9 @@ class _ProductPageState extends State<ProductPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Product title / price row
-                      Text(productTitle, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
+                      const Text(productTitle, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
                       const SizedBox(height: 8),
-                      Text(productPrice, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xFF4d2963))),
+                      const Text(productPrice, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xFF4d2963))),
                       const SizedBox(height: 20),
 
                       // Images: large image + thumbnails
