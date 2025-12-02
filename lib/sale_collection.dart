@@ -56,3 +56,39 @@ class SaleCollectionPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
+Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () => _navigateHome(context),
+                      child: Image.network(
+                        'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                        height: 48,
+                        errorBuilder: (c, e, s) => Container(width: 48, height: 48, color: Colors.grey[200]),
+                      ),
+                    ),
+                    const Spacer(),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextButton(onPressed: () => _navigateHome(context), child: const Text('Home', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('Shop', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('SALE!', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
+                        const SizedBox(width: 8),
+                        TextButton(onPressed: () {}, child: const Text('UPSU.net', style: TextStyle(color: Colors.black))),
+                      ],
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 40),
