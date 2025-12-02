@@ -67,3 +67,32 @@ class AutumnCollectionPage extends StatelessWidget {
                   ],
                 ),
               ),
+            const SizedBox(height: 40),
+
+              // Page title / breadcrumb
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1100),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Autumn Favourites',
+                          style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700, color: Colors.grey[900]),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Align(
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          onPressed: goBackToCollections,
+                          child: const Text('← Back to Collections', style: TextStyle(color: Colors.black54)),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
+                ),
+              ),
