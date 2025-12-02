@@ -233,7 +233,7 @@ class _ProductTile extends StatelessWidget {
   final String price;
   final String imageUrl;
 
-  const _ProductTile({required this.title, required this.price, required this.imageUrl, super.key});
+  const _ProductTile({required this.title, required this.price, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -246,6 +246,7 @@ class _ProductTile extends StatelessWidget {
             Positioned.fill(
               child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
             ),
+            // ignore: deprecated_member_use
             Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
             Positioned(
               left: 12,
