@@ -128,4 +128,182 @@ Padding(
                   ),
                 ),
               ),
+const SizedBox(height: 48),
 
+              // Footer (same style used elsewhere)
+              Container(
+                width: double.infinity,
+                color: Colors.grey[50],
+                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final isNarrow = constraints.maxWidth < 800;
+
+                    Widget openingHours = const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        SizedBox(height: 12),
+                        Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 8),
+                        Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 8),
+                        Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 8),
+                        Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 12),
+                        Text('-------------------------'),
+                        SizedBox(height: 12),
+                        Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                        SizedBox(height: 8),
+                        Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 12),
+                        Text('(Outside of Term Time / Consolidation Weeks)'),
+                        SizedBox(height: 8),
+                        Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                        SizedBox(height: 12),
+                        Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+                      ],
+                    );
+
+                    Widget helpInfo = Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 12),
+                        TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
+                        TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
+                        TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                      ],
+                    );
+
+                    Widget latestOffers = Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 44,
+                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(color: Colors.grey.shade400),
+                                ),
+                                child: const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
+                              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                              child: const Text('SUBSCRIBE'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+
+                    if (isNarrow) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          openingHours,
+                          const SizedBox(height: 24),
+                          helpInfo,
+                          const SizedBox(height: 24),
+                          latestOffers,
+                        ],
+                      );
+                    }
+
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(child: openingHours),
+                        const SizedBox(width: 40),
+                        Expanded(child: helpInfo),
+                        const SizedBox(width: 40),
+                        Expanded(child: latestOffers),
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SaleProductTile extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  final String price;
+  final String salePrice;
+  final String badge;
+
+  const SaleProductTile({
+    super.key,
+    required this.title,
+    required this.imageUrl,
+    required this.price,
+    required this.salePrice,
+    required this.badge,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, '/product'),
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: ClipRRect(
+          borderRadius: BorderRadius.zero,
+          child: Stack(
+            children: [
+              Positioned.fill(child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200]))),
+              Positioned(
+                left: 8,
+                top: 8,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                  color: const Color(0xFF4d2963),
+                  child: Text(badge, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)),
+                ),
+              ),
+              Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
+              Positioned(
+                left: 12,
+                right: 12,
+                bottom: 12,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16)),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Text(price, style: const TextStyle(color: Colors.white70, decoration: TextDecoration.lineThrough)),
+                        const SizedBox(width: 8),
+                        Text(salePrice, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+              
