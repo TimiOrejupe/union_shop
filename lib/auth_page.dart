@@ -166,3 +166,15 @@ Widget _signupForm(BuildContext context) {
                 ),
               ),
             ),
+const Spacer(),
+            // small footer note
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 18.0),
+              child: Text('By continuing you agree to the Terms & Conditions', style: TextStyle(color: Colors.grey[600], fontSize: 12)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
