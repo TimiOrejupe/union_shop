@@ -130,3 +130,39 @@ Widget _signupForm(BuildContext context) {
       ),
     );
   }
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            _header(context),
+            const SizedBox(height: 28),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 900),
+              child: DefaultTabController(
+                length: 2,
+                child: Column(
+                  children: [
+                    Material(
+                      color: Colors.white,
+                      child: TabBar(
+                        labelColor: Colors.black87,
+                        unselectedLabelColor: Colors.black54,
+                        indicatorColor: const Color(0xFF4d2963),
+                        tabs: const [Tab(text: 'Login'), Tab(text: 'Sign up')],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 520,
+                      child: TabBarView(
+                        children: [
+                          SingleChildScrollView(child: _loginForm(context)),
+                          SingleChildScrollView(child: _signupForm(context)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
