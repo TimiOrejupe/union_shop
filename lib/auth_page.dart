@@ -94,3 +94,39 @@ Widget _loginForm(BuildContext context) {
       ),
     );
   }
+Widget _signupForm(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const SizedBox(height: 8),
+          const Text('Create account', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 8),
+          const Text('Sign up to place orders, save addresses and more', style: TextStyle(color: Colors.black54)),
+          const SizedBox(height: 18),
+          const TextField(decoration: InputDecoration(labelText: 'Full name', border: OutlineInputBorder())),
+          const SizedBox(height: 12),
+          const TextField(decoration: InputDecoration(labelText: 'Email address', border: OutlineInputBorder())),
+          const SizedBox(height: 12),
+          const TextField(obscureText: true, decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder())),
+          const SizedBox(height: 12),
+          const TextField(obscureText: true, decoration: InputDecoration(labelText: 'Confirm password', border: OutlineInputBorder())),
+          const SizedBox(height: 16),
+          ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Create account'))),
+          const SizedBox(height: 12),
+          Row(children: [
+            const Expanded(child: Divider()),
+            const Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
+            const Expanded(child: Divider()),
+          ]),
+          const SizedBox(height: 12),
+          Row(children: [
+            _socialButton(context, 'Continue with Google', Icons.g_mobiledata),
+            const SizedBox(width: 12),
+            _socialButton(context, 'Continue with Apple', Icons.apple),
+          ]),
+        ],
+      ),
+    );
+  }
