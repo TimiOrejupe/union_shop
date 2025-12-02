@@ -92,3 +92,17 @@ Container(
               ),
 
               const SizedBox(height: 40),
+               Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1100),
+                  child: Column(
+                    children: const [
+                      Text('Sale Items', style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700, color: Colors.black87)),
+                      SizedBox(height: 12),
+                      Text('Discounted prices across our favourite ranges. Limited sizes and stock — shop early!', textAlign: TextAlign.center, style: TextStyle(fontSize: 16, color: Colors.black54)),
+                      SizedBox(height: 24),
+                    ],
+                  ),
+                ),
+              ),
