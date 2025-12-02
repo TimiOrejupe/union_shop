@@ -321,7 +321,7 @@ class HomeScreen extends StatelessWidget {
                               const SizedBox(width: 12),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed (static)'))),
+                                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
                                 child: const Text('SUBSCRIBE'),
                               ),
                             ],
