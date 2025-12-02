@@ -10,7 +10,7 @@ class AutumnCollectionPage extends StatelessWidget {
     {'title': 'Autumn Scarf', 'price': '£10.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
   ];
 
-    @override
+  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final crossAxisCount = width > 1000 ? 3 : (width > 600 ? 2 : 1);
@@ -67,7 +67,8 @@ class AutumnCollectionPage extends StatelessWidget {
                   ],
                 ),
               ),
-            const SizedBox(height: 40),
+
+              const SizedBox(height: 40),
 
               // Page title / breadcrumb
               Padding(
@@ -96,6 +97,7 @@ class AutumnCollectionPage extends StatelessWidget {
                   ),
                 ),
               ),
+
               // Products grid
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -228,12 +230,13 @@ class AutumnCollectionPage extends StatelessWidget {
     );
   }
 }
+
 class _ProductTile extends StatelessWidget {
   final String title;
   final String price;
   final String imageUrl;
 
-  const _ProductTile({required this.title, required this.price, required this.imageUrl});
+  const _ProductTile({required this.title, required this.price, required this.imageUrl, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +249,6 @@ class _ProductTile extends StatelessWidget {
             Positioned.fill(
               child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
             ),
-            // ignore: deprecated_member_use
             Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
             Positioned(
               left: 12,
