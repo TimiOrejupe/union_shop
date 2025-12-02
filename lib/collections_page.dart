@@ -159,7 +159,7 @@ class CollectionsPage extends StatelessWidget {
                       return CollectionTile(
                         title: c['title']!,
                         imageUrl: c['image']!,
-                        route: c['route'] as String?,
+                        route: c['route'],
                       );
                     }).toList(),
                   ),
@@ -323,6 +323,7 @@ class CollectionTile extends StatelessWidget {
                   errorBuilder: (c, e, s) => Container(color: Colors.grey[200]),
                 ),
               ),
+              // ignore: deprecated_member_use
               Positioned.fill(child: Container(color: Colors.black.withOpacity(0.35))),
               Center(
                 child: Text(
