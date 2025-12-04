@@ -4,10 +4,26 @@ class EssentialCollectionPage extends StatelessWidget {
   const EssentialCollectionPage({super.key});
 
   static const _products = [
-    {'title': 'Essential Hoodie', 'price': '£35.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'},
-    {'title': 'Essential T‑Shirt', 'price': '£18.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
-    {'title': 'Essential Cap', 'price': '£12.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'},
-    {'title': 'Essential Scarf', 'price': '£10.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
+    {
+      'title': 'Essential Hoodie',
+      'price': '£35.00',
+      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'
+    },
+    {
+      'title': 'Essential T‑Shirt',
+      'price': '£18.00',
+      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'
+    },
+    {
+      'title': 'Essential Cap',
+      'price': '£12.00',
+      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'
+    },
+    {
+      'title': 'Essential Scarf',
+      'price': '£10.00',
+      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'
+    },
   ];
 
   @override
@@ -22,7 +38,7 @@ class EssentialCollectionPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Top purple banner + header (matches other pages)
+              // Top purple banner
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 10),
@@ -33,6 +49,8 @@ class EssentialCollectionPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
                 ),
               ),
+
+              // Header row
               Container(
                 color: Colors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
@@ -43,7 +61,7 @@ class EssentialCollectionPage extends StatelessWidget {
                       child: Image.network(
                         'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
                         height: 48,
-                        errorBuilder: (c, e, s) => Container(width: 48, height: 48, color: Colors.grey[200]),
+                        errorBuilder: (c, e, s) => SizedBox(width: 48, height: 48, child: Container(color: Colors.grey[200])),
                       ),
                     ),
                     const Spacer(),
@@ -54,13 +72,9 @@ class EssentialCollectionPage extends StatelessWidget {
                         const SizedBox(width: 8),
                         TextButton(onPressed: () {}, child: const Text('Shop', style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(onPressed: () {}, child: const Text('The Print Shack', style: TextStyle(color: Colors.black))),
-                        const SizedBox(width: 8),
                         TextButton(onPressed: () {}, child: const Text('SALE!', style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
                         TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
-                        const SizedBox(width: 8),
-                        TextButton(onPressed: () {}, child: const Text('UPSU.net', style: TextStyle(color: Colors.black))),
                       ],
                     ),
                     const Spacer(),
@@ -70,7 +84,7 @@ class EssentialCollectionPage extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              // Page title / breadcrumb
+              // Title
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: ConstrainedBox(
@@ -118,63 +132,173 @@ class EssentialCollectionPage extends StatelessWidget {
 
               const SizedBox(height: 48),
 
-              // Footer (simple copy of site footer used elsewhere)
-              Container(
-                width: double.infinity,
-                color: Colors.grey[50],
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    final isNarrow = constraints.maxWidth < 800;
+              // Footer
+              const _Footer(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-                    Widget openingHours = const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                        SizedBox(height: 12),
-                        Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 8),
-                        Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 8),
-                        Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 8),
-                        Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 12),
-                        Text('-------------------------'),
-                        SizedBox(height: 12),
-                        Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
-                        SizedBox(height: 8),
-                        Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 12),
-                        Text('(Outside of Term Time / Consolidation Weeks)'),
-                        SizedBox(height: 8),
-                        Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 12),
-                        Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
-                      ],
-                    );
+class _ProductTile extends StatelessWidget {
+  final String title;
+  final String price;
+  final String imageUrl;
 
-                    Widget helpInfo = Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                        const SizedBox(height: 12),
-                        TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
-                      ],
-                    );
+  const _ProductTile({required this.title, required this.price, required this.imageUrl, Key? key}) : super(key: key);
 
-                    Widget latestOffers = Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                        const SizedBox(height: 12),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 44,
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
-                                decoration: BoxDecoration(
-They want to update route in main.dart earlier done. Now they renamed class and created essential_collection.dart; main.dart imports autumn_collection.dart still? We earlier updated main.dart to use EssentialCollectionPage, then later updated import to essential_collection.dart. Let's confirm: main.dart import list at top currently includes 'package:union_shop/autumn_collection.dart'; earlier we updated to essential_collection? We did earlier change to essential_collection import. But in the latest main.dart content attached, top imports include 'package:union_shop/autumn_collection.dart'; I see initial lines: import 'package:union_shop/autumn_collection.dart'; So maybe not updated. The user now asks 
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
+        onTap: () {},
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    color: Colors.grey[200],
+                    child: const Center(child: Icon(Icons.broken_image, size: 48, color: Colors.grey)),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const SizedBox(height: 6),
+                  Text(price, style: const TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.w600)),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Footer extends StatelessWidget {
+  const _Footer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.grey[50],
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isNarrow = constraints.maxWidth < 800;
+
+          Widget openingHours = const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              SizedBox(height: 12),
+              Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+              SizedBox(height: 8),
+              Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+              SizedBox(height: 8),
+              Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+              SizedBox(height: 8),
+              Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+              SizedBox(height: 12),
+              Text('-------------------------'),
+              SizedBox(height: 12),
+              Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+              SizedBox(height: 8),
+              Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+              SizedBox(height: 12),
+              Text('(Outside of Term Time / Consolidation Weeks)'),
+              SizedBox(height: 8),
+              Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+              SizedBox(height: 12),
+              Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+            ],
+          );
+
+          Widget helpInfo = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              const SizedBox(height: 12),
+              TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
+              TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
+              TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+            ],
+          );
+
+          Widget latestOffers = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 44,
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey.shade400),
+                      ),
+                      child: const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                    child: const Text('SUBSCRIBE'),
+                  ),
+                ],
+              ),
+            ],
+          );
+
+          if (isNarrow) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                openingHours,
+                const SizedBox(height: 24),
+                helpInfo,
+                const SizedBox(height: 24),
+                latestOffers,
+              ],
+            );
+          }
+
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(child: openingHours),
+              const SizedBox(width: 40),
+              Expanded(child: helpInfo),
+              const SizedBox(width: 40),
+              Expanded(child: latestOffers),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
