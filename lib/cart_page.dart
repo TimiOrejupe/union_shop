@@ -138,7 +138,7 @@ class CartPage extends StatelessWidget {
                           // demo checkout: place order and clear cart
                           final count = items.fold<int>(0, (acc, it) => acc + (it['quantity'] as int));
                           Cart.clear();
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Order placed for $count items (demo)')));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Order placed for $count items')));
                           Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false);
                         },
                         child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('PLACE ORDER')),
