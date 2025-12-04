@@ -24,13 +24,16 @@ class TopNavBar extends StatelessWidget {
           child: LayoutBuilder(
             builder: (context, constraints) {
               final isNarrow = constraints.maxWidth < 720;
-              // use transparent background on narrow screens so hero isn't blocked
-              // make the nav container transparent so it never blocks the hero
-              // restore white background for the nav so the header appears as before
-              return Container(
-                color: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                child: Builder(builder: (context) {
+              final navPadding = isNarrow
+                  ? const EdgeInsets.symmetric(horizontal: 12, vertical: 6)
+                  : const EdgeInsets.symmetric(horizontal: 20, vertical: 12);
+               // use transparent background on narrow screens so hero isn't blocked
+               // make the nav container transparent so it never blocks the hero
+               // restore white background for the nav so the header appears as before
+               return Container(
+                 color: isNarrow ? Colors.transparent : Colors.white,
+                 padding: navPadding,
+                 child: Builder(builder: (context) {
                   Widget cartButton() {
                     return ValueListenableBuilder<List<Map<String, dynamic>>>(
                       valueListenable: Cart.items,
@@ -123,7 +126,7 @@ class TopNavBar extends StatelessWidget {
                           errorBuilder: (context, error, stackTrace) => Container(width: 48, height: 48, color: Colors.grey[200]),
                         ),
                       ),
-                      const Spacer(),
+                      const SizedBox(width: 12),
                       // Make nav links horizontally scrollable to avoid overflow on small widths
                       Expanded(
                         child: SingleChildScrollView(
@@ -158,7 +161,7 @@ class TopNavBar extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Spacer(),
+                      const SizedBox(width: 12),
                       cartButton(),
                     ],
                   );
