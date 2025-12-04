@@ -3,9 +3,12 @@ import 'package:union_shop/product_page.dart';
 import 'test_wrapper.dart';
 
 void main() {
-  testWidgets('ProductPage builds', (tester) async {
+  testWidgets('ProductPage builds without exceptions', (tester) async {
     await tester.pumpWidget(wrapWithMaterial(const ProductPage()));
     await tester.pumpAndSettle();
+
+    final dynamic exception = tester.takeException();
+    expect(exception, isNull);
 
     expect(find.byType(ProductPage), findsOneWidget);
   });

@@ -3,9 +3,12 @@ import 'package:union_shop/cart_page.dart';
 import 'test_wrapper.dart';
 
 void main() {
-  testWidgets('CartPage builds and shows empty text', (tester) async {
+  testWidgets('CartPage builds without exceptions', (tester) async {
     await tester.pumpWidget(wrapWithMaterial(const CartPage()));
     await tester.pumpAndSettle();
+
+    final dynamic exception = tester.takeException();
+    expect(exception, isNull);
 
     expect(find.byType(CartPage), findsOneWidget);
   });
