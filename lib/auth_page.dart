@@ -6,7 +6,8 @@ class AuthPage extends StatelessWidget {
   void _notImplemented(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Not implemented (demo)')));
   }
- Widget _header(BuildContext context) {
+
+  Widget _header(BuildContext context) {
     return Column(
       children: [
         Container(
@@ -51,16 +52,7 @@ class AuthPage extends StatelessWidget {
     );
   }
 
-  Widget _socialButton(BuildContext c, String label, IconData icon) {
-    return Expanded(
-      child: OutlinedButton.icon(
-        icon: Icon(icon, size: 18),
-        label: Text(label),
-        onPressed: () => _notImplemented(c),
-      ),
-    );
-  }
-Widget _loginForm(BuildContext context) {
+  Widget _loginForm(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
       child: Column(
@@ -78,23 +70,12 @@ Widget _loginForm(BuildContext context) {
           Align(alignment: Alignment.centerRight, child: TextButton(onPressed: () => _notImplemented(context), child: const Text('Forgot password?'))),
           const SizedBox(height: 12),
           ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Sign in'))),
-          const SizedBox(height: 12),
-          const Row(children: [
-            Expanded(child: Divider()),
-            Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
-            Expanded(child: Divider()),
-          ]),
-          const SizedBox(height: 12),
-          Row(children: [
-            _socialButton(context, 'Continue with Google', Icons.g_mobiledata),
-            const SizedBox(width: 12),
-            _socialButton(context, 'Continue with Apple', Icons.apple),
-          ]),
         ],
       ),
     );
   }
-Widget _signupForm(BuildContext context) {
+
+  Widget _signupForm(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
       child: Column(
@@ -114,23 +95,12 @@ Widget _signupForm(BuildContext context) {
           const TextField(obscureText: true, decoration: InputDecoration(labelText: 'Confirm password', border: OutlineInputBorder())),
           const SizedBox(height: 16),
           ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Create account'))),
-          const SizedBox(height: 12),
-          const Row(children: [
-            Expanded(child: Divider()),
-            Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Text('OR', style: TextStyle(color: Colors.black54))),
-            Expanded(child: Divider()),
-          ]),
-          const SizedBox(height: 12),
-          Row(children: [
-            _socialButton(context, 'Continue with Google', Icons.g_mobiledata),
-            const SizedBox(width: 12),
-            _socialButton(context, 'Continue with Apple', Icons.apple),
-          ]),
         ],
       ),
     );
   }
- @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -153,8 +123,9 @@ Widget _signupForm(BuildContext context) {
                         tabs: [Tab(text: 'Login'), Tab(text: 'Sign up')],
                       ),
                     ),
+                    // give TabBarView a reasonable height (responsive) instead of Expanded
                     SizedBox(
-                      height: 520,
+                      height: MediaQuery.of(context).size.height * 0.6,
                       child: TabBarView(
                         children: [
                           SingleChildScrollView(child: _loginForm(context)),
@@ -166,8 +137,8 @@ Widget _signupForm(BuildContext context) {
                 ),
               ),
             ),
-const Spacer(),
-            // small footer note
+            // Spacer removed so footer doesn't push content beyond screen height
+             // small footer note
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 18.0),
               child: Text('By continuing you agree to the Terms & Conditions', style: TextStyle(color: Colors.grey[600], fontSize: 12)),
