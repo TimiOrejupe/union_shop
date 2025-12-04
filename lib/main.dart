@@ -5,6 +5,7 @@ import 'package:union_shop/collections_page.dart';
 import 'package:union_shop/autumn_collection.dart';
 import 'package:union_shop/sale_collection.dart';
 import 'package:union_shop/auth_page.dart';
+import 'package:union_shop/shop_menu.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -105,7 +106,8 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 TextButton(onPressed: () => navigateToHome(context), child: const Text('Home', style: TextStyle(color: Colors.black))),
                                 const SizedBox(width: 8),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Shop', style: TextStyle(color: Colors.black))),
+                                // Shop dropdown (desktop) / bottom-sheet (mobile)
+                                const ShopMenu(),
                                 const SizedBox(width: 8),
                                 TextButton(onPressed: placeholderCallbackForButtons, child: const Text('The Print Shack', style: TextStyle(color: Colors.black))),
                                 const SizedBox(width: 8),
