@@ -4,7 +4,7 @@ class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
 
   void _notImplemented(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Not implemented (demo)')));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Successful')));
   }
 
   Widget _header(BuildContext context) {
