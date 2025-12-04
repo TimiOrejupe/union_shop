@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/cart_page.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -24,9 +25,11 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   void _addToCart() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Added to cart ')),
-    );
+    final title = 'University T-shirt';
+    final price = '£10.00';
+    final image = images[selectedImage];
+    Cart.addItem(title: title, price: price, image: image);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title added to basket')));
   }
 
   void _buyNow() {
@@ -34,7 +37,8 @@ class _ProductPageState extends State<ProductPage> {
       const SnackBar(content: Text('Proceed to checkout')),
     );
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     const productTitle = 'University T-shirt';
     const productPrice = '£10.00';
@@ -92,7 +96,7 @@ class _ProductPageState extends State<ProductPage> {
                   ],
                 ),
               ),
- const SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               // Product content area constrained
               Padding(
@@ -289,7 +293,7 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                 ),
               ),
-Container(
+              Container(
                 width: double.infinity,
                 color: Colors.grey[50],
                 padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
