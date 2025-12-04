@@ -6,6 +6,7 @@ import 'package:union_shop/essential_collection.dart';
 import 'package:union_shop/sale_collection.dart';
 import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/shop_menu.dart';
+import 'package:union_shop/cart_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -31,6 +32,7 @@ class UnionShopApp extends StatelessWidget {
         '/collections/essential-range': (context) => const EssentialCollectionPage(),
         '/collections/sale-items': (context) => const SaleCollectionPage(),
         '/auth': (context) => const AuthPage(),
+        '/cart': (context) => const CartPage(),
       },
     );
   }

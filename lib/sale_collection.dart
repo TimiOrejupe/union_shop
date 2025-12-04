@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/cart_page.dart';
 
 class SaleCollectionPage extends StatelessWidget {
   const SaleCollectionPage({super.key});
@@ -262,14 +263,21 @@ class SaleProductTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/product'),
+      onTap: () {
+        Cart.addItem(title: title, price: salePrice, image: imageUrl);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title added to basket')));
+      },
       child: AspectRatio(
         aspectRatio: 1,
         child: ClipRRect(
           borderRadius: BorderRadius.zero,
           child: Stack(
             children: [
-              Positioned.fill(child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200]))),
+              Positioned.fill(
+                child: imageUrl.startsWith('http')
+                    ? Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200]))
+                    : Image.asset(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
+              ),
               Positioned(
                 left: 8,
                 top: 8,
@@ -307,4 +315,3 @@ class SaleProductTile extends StatelessWidget {
     );
   }
 }
-              

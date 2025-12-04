@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/cart_page.dart';
 
 class EssentialCollectionPage extends StatelessWidget {
   const EssentialCollectionPage({super.key});
@@ -143,6 +144,16 @@ class EssentialCollectionPage extends StatelessWidget {
                           Text(p['title']!, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
                           const SizedBox(height: 4),
                           Text(p['price']!, style: const TextStyle(color: Colors.grey)),
+                          const SizedBox(height: 8),
+                          ElevatedButton(
+                            onPressed: () {
+                              // lazy add to cart
+                              Cart.addItem(title: p['title']!, price: p['price']!, image: p['image']!);
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${p['title']} added to basket')));
+                            },
+                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963)),
+                            child: const Text('ADD TO BASKET'),
+                          ),
                         ],
                       );
                     }).toList(),
