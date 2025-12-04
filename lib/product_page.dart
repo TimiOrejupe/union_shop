@@ -294,9 +294,7 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                 ),
               ),
-              // Replace old header/footer with TopNavBar at top of screen (outside the constrained product area)
-              // Note: TopNavBar is used at the app level for consistent navigation; ensure it's present in main.dart pages
-              const TopNavBar(),
+              // TopNavBar removed here to avoid duplication
             ],
           ),
         ),
