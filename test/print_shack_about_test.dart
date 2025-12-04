@@ -4,7 +4,7 @@ import 'package:union_shop/print_shack_about.dart';
 
 void main() {
   testWidgets('PrintShackAboutPage builds', (tester) async {
-    await tester.pumpWidget(MaterialApp(home: PrintShackAboutPage()));
+    await tester.pumpWidget(const MaterialApp(home: PrintShackAboutPage()));
     expect(find.byType(PrintShackAboutPage), findsOneWidget);
   });
 }

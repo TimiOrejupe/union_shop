@@ -4,7 +4,7 @@ import 'package:union_shop/collections_page.dart';
 
 void main() {
   testWidgets('CollectionsPage displays header', (tester) async {
-    await tester.pumpWidget(MaterialApp(home: CollectionsPage()));
+    await tester.pumpWidget(const MaterialApp(home: CollectionsPage()));
 
     expect(find.byType(CollectionsPage), findsOneWidget);
   });

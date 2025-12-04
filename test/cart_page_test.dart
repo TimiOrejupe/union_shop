@@ -4,7 +4,7 @@ import 'package:union_shop/cart_page.dart';
 
 void main() {
   testWidgets('CartPage builds and shows empty text', (tester) async {
-    await tester.pumpWidget(MaterialApp(home: CartPage()));
+    await tester.pumpWidget(const MaterialApp(home: CartPage()));
     expect(find.byType(CartPage), findsOneWidget);
   });
 }

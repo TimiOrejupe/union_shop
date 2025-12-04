@@ -4,7 +4,7 @@ import 'package:union_shop/auth_page.dart';
 
 void main() {
   testWidgets('AuthPage builds', (tester) async {
-    await tester.pumpWidget(MaterialApp(home: AuthPage()));
+    await tester.pumpWidget(const MaterialApp(home: AuthPage()));
     expect(find.byType(AuthPage), findsOneWidget);
   });
 }

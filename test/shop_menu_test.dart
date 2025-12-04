@@ -4,7 +4,7 @@ import 'package:union_shop/shop_menu.dart';
 
 void main() {
   testWidgets('ShopMenu builds', (tester) async {
-    await tester.pumpWidget(MaterialApp(home: Scaffold(body: ShopMenu())));
+    await tester.pumpWidget(const MaterialApp(home: Scaffold(body: ShopMenu())));
     expect(find.byType(ShopMenu), findsOneWidget);
   });
 }
