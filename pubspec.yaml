@@ -19,3 +19,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/university_hoodie.png
+    - assets/images/university_t-shirt.png
+    - assets/images/university_lanyard.png
+    - assets/images/university_joggers.png
+    - assets/images/university_shirt-man.png

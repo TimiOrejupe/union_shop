@@ -139,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: NetworkImage(
-                                'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+                                'assets/images/university_shirt-man.png',
                               ),
                               fit: BoxFit.cover,
                             ),
@@ -226,28 +226,28 @@ class HomeScreen extends StatelessWidget {
                           mainAxisSpacing: 48,
                           children: const [
                             ProductCard(
-                              title: 'Placeholder Product 1',
-                              price: '£10.00',
-                              imageUrl:
-                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                            ),
-                            ProductCard(
-                              title: 'Placeholder Product 2',
+                              title: 'University Hoodie',
                               price: '£15.00',
                               imageUrl:
-                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  'assets/images/university_hoodie.png',
                             ),
                             ProductCard(
-                              title: 'Placeholder Product 3',
-                              price: '£20.00',
+                              title: 'University T-Shirt',
+                              price: '£10.00',
                               imageUrl:
-                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  'assets/images/university_t-shirt.png',
                             ),
                             ProductCard(
-                              title: 'Placeholder Product 4',
-                              price: '£25.00',
+                              title: 'University Lanyard',
+                              price: '£7.00',
                               imageUrl:
-                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  'assets/images/university_lanyard.png',
+                            ),
+                            ProductCard(
+                              title: 'University Joggers',
+                              price: '£15.00',
+                              imageUrl:
+                                  'assets/images/university_joggers.png',
                             ),
                           ],
                         ),
@@ -395,16 +395,36 @@ class ProductCard extends StatelessWidget {
             aspectRatio: 4 / 3,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(4),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    color: Colors.grey[300],
-                    child: const Center(
-                      child: Icon(Icons.image_not_supported, color: Colors.grey),
-                    ),
+              child: Builder(
+                builder: (context) {
+                  if (imageUrl.startsWith('assets/')) {
+                    return Image.asset(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey[300],
+                          child: const Center(
+                            child: Icon(Icons.image_not_supported, color: Colors.grey),
+                          ),
+                        );
+                      },
+                    );
+                  }
+
+                  return Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.grey[300],
+                        child: const Center(
+                          child: Icon(Icons.image_not_supported, color: Colors.grey),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
