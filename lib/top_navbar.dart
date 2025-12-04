@@ -119,33 +119,39 @@ class TopNavBar extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      TextButton(onPressed: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false), child: const Text('Home', style: TextStyle(color: Colors.black))),
-                      const SizedBox(width: 8),
-                      const ShopMenu(),
-                      const SizedBox(width: 8),
-                      PopupMenuButton<int>(
-                        tooltip: 'The Print Shack',
-                        onSelected: (v) {
-                          if (v == 0) Navigator.pushNamed(context, '/print-shack/about');
-                          if (v == 1) Navigator.pushNamed(context, '/print-shack/text');
-                        },
-                        itemBuilder: (_) => const [
-                          PopupMenuItem<int>(value: 0, child: Text('About')),
-                          PopupMenuItem<int>(value: 1, child: Text('Personalisation')),
+                  // Make nav links horizontally scrollable to avoid overflow on small widths
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextButton(onPressed: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false), child: const Text('Home', style: TextStyle(color: Colors.black))),
+                          const SizedBox(width: 8),
+                          const ShopMenu(),
+                          const SizedBox(width: 8),
+                          PopupMenuButton<int>(
+                            tooltip: 'The Print Shack',
+                            onSelected: (v) {
+                              if (v == 0) Navigator.pushNamed(context, '/print-shack/about');
+                              if (v == 1) Navigator.pushNamed(context, '/print-shack/text');
+                            },
+                            itemBuilder: (_) => const [
+                              PopupMenuItem<int>(value: 0, child: Text('About')),
+                              PopupMenuItem<int>(value: 1, child: Text('Personalisation')),
+                            ],
+                            child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                          ),
+                          const SizedBox(width: 8),
+                          TextButton(onPressed: () => Navigator.pushNamed(context, '/collections/sale-items'), child: const Text('SALE!', style: TextStyle(color: Colors.black))),
+                          const SizedBox(width: 8),
+                          TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
+                          const SizedBox(width: 8),
+                          TextButton(onPressed: () => Navigator.pushNamed(context, '/collections'), child: const Text('Collections', style: TextStyle(color: Colors.black))),
+                          const SizedBox(width: 8),
                         ],
-                        child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: Text('The Print Shack', style: TextStyle(color: Colors.black))),
                       ),
-                      const SizedBox(width: 8),
-                      TextButton(onPressed: () => Navigator.pushNamed(context, '/collections/sale-items'), child: const Text('SALE!', style: TextStyle(color: Colors.black))),
-                      const SizedBox(width: 8),
-                      TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
-                      const SizedBox(width: 8),
-                      TextButton(onPressed: () => Navigator.pushNamed(context, '/collections'), child: const Text('Collections', style: TextStyle(color: Colors.black))),
-                      const SizedBox(width: 8),
-                    ],
+                    ),
                   ),
                   const Spacer(),
                   cartButton(),
