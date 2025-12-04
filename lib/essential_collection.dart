@@ -40,19 +40,7 @@ class EssentialCollectionPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Top purple banner
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                color: const Color(0xFF4d2963),
-                child: const Text(
-                  'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-                ),
-              ),
-
-              // Header row
+              // Top purple banner + header (matches other pages)
               const TopNavBar(),
 
               const SizedBox(height: 40),
@@ -94,6 +82,8 @@ class EssentialCollectionPage extends StatelessWidget {
                     crossAxisCount: crossAxisCount,
                     crossAxisSpacing: 24,
                     mainAxisSpacing: 24,
+                    padding: const EdgeInsets.only(bottom: 24),
+                    childAspectRatio: 3 / 4,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: _products.map((p) {
