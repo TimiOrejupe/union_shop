@@ -124,7 +124,27 @@ class EssentialCollectionPage extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: _products.map((p) {
-                      return _ProductTile(title: p['title']!, price: p['price']!, imageUrl: p['image']!);
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AspectRatio(
+                            aspectRatio: 4 / 3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: Image.network(
+                                p['image']!,
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                errorBuilder: (c, e, s) => Container(color: Colors.grey[200]),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(p['title']!, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                          const SizedBox(height: 4),
+                          Text(p['price']!, style: const TextStyle(color: Colors.grey)),
+                        ],
+                      );
                     }).toList(),
                   ),
                 ),
@@ -136,55 +156,6 @@ class EssentialCollectionPage extends StatelessWidget {
               const _Footer(),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ProductTile extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
-
-  const _ProductTile({required this.title, required this.price, required this.imageUrl, Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(8),
-        onTap: () {},
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    color: Colors.grey[200],
-                    child: const Center(child: Icon(Icons.broken_image, size: 48, color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  const SizedBox(height: 6),
-                  Text(price, style: const TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.w600)),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );
