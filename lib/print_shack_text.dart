@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/cart_page.dart';
-import 'package:union_shop/top_navbar.dart';
 
 class PrintShackTextPage extends StatefulWidget {
   const PrintShackTextPage({super.key});
@@ -53,9 +52,9 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
 
   void _addToCart() {
     final title = 'Personalised $_product';
-    final price = '£12.00'; // demo fixed price
+    const price = '£12.00'; // demo fixed price
     final previewText = _textController.text.trim();
-    final image = ''; // leave empty for demo
+    const image = ''; // leave empty for demo
     Cart.addItem(title: title + (previewText.isNotEmpty ? ' - $previewText' : ''), price: price, image: image);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title added to basket')));
   }

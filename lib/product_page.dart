@@ -25,11 +25,11 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   void _addToCart() {
-    final title = 'University T-shirt';
-    final price = '£10.00';
+    const title = 'University T-shirt';
+    const price = '£10.00';
     final image = images[selectedImage];
     Cart.addItem(title: title, price: price, image: image);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title added to basket')));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('$title added to basket')));
   }
 
   void _buyNow() {
