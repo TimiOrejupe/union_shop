@@ -5,10 +5,10 @@ class CollectionsPage extends StatelessWidget {
 
   static const _collections = [
     {
-      'title': 'Autumn Favourites',
+      'title': 'ESSENTIAL RANGE',
       'image':
           'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-      'route': '/autumn'
+      'route': '/collections/essential-range'
     },
     {
       'title': 'Graduation',

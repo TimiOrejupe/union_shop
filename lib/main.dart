@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
 import 'package:union_shop/collections_page.dart';
-import 'package:union_shop/autumn_collection.dart';
+import 'package:union_shop/essential_collection.dart';
 import 'package:union_shop/sale_collection.dart';
 import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/shop_menu.dart';
@@ -28,7 +28,7 @@ class UnionShopApp extends StatelessWidget {
         '/product': (context) => const ProductPage(),
         '/about': (context) => const AboutUsPage(),
         '/collections': (context) => const CollectionsPage(),
-        '/collections/autumn-favourites': (context) => const AutumnCollectionPage(),
+        '/collections/essential-range': (context) => const EssentialCollectionPage(),
         '/collections/sale-items': (context) => const SaleCollectionPage(),
         '/auth': (context) => const AuthPage(),
       },

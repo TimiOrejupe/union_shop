@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AutumnCollectionPage extends StatelessWidget {
-  const AutumnCollectionPage({super.key});
+class EssentialCollectionPage extends StatelessWidget {
+  const EssentialCollectionPage({super.key});
 
   static const _products = [
-    {'title': 'Autumn Hoodie', 'price': '£35.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'},
-    {'title': 'Autumn T‑Shirt', 'price': '£18.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
-    {'title': 'Autumn Cap', 'price': '£12.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'},
-    {'title': 'Autumn Scarf', 'price': '£10.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
+    {'title': 'Essential Hoodie', 'price': '£35.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'},
+    {'title': 'Essential T‑Shirt', 'price': '£18.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
+    {'title': 'Essential Cap', 'price': '£12.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'},
+    {'title': 'Essential Scarf', 'price': '£10.00', 'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'},
   ];
 
   @override
@@ -80,7 +80,7 @@ class AutumnCollectionPage extends StatelessWidget {
                       Align(
                         alignment: Alignment.center,
                         child: Text(
-                          'Autumn Favourites',
+                          'ESSENTIAL RANGE',
                           style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700, color: Colors.grey[900]),
                         ),
                       ),
@@ -177,96 +177,4 @@ class AutumnCollectionPage extends StatelessWidget {
                                 height: 44,
                                 padding: const EdgeInsets.symmetric(horizontal: 12),
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(color: Colors.grey.shade400),
-                                ),
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Email address', style: TextStyle(color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
-                              child: const Text('SUBSCRIBE'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-
-                    if (isNarrow) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          openingHours,
-                          const SizedBox(height: 24),
-                          helpInfo,
-                          const SizedBox(height: 24),
-                          latestOffers,
-                        ],
-                      );
-                    }
-
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: openingHours),
-                        const SizedBox(width: 40),
-                        Expanded(child: helpInfo),
-                        const SizedBox(width: 40),
-                        Expanded(child: latestOffers),
-                      ],
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ProductTile extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
-
-  const _ProductTile({required this.title, required this.price, required this.imageUrl});
-
-  @override
-  Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: ClipRRect(
-        borderRadius: BorderRadius.zero,
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
-            ),
-            // ignore: deprecated_member_use
-            Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
-            Positioned(
-              left: 12,
-              right: 12,
-              bottom: 12,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16)),
-                  const SizedBox(height: 6),
-                  Text(price, style: const TextStyle(color: Colors.white70, fontSize: 14)),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+They want to update route in main.dart earlier done. Now they renamed class and created essential_collection.dart; main.dart imports autumn_collection.dart still? We earlier updated main.dart to use EssentialCollectionPage, then later updated import to essential_collection.dart. Let's confirm: main.dart import list at top currently includes 'package:union_shop/autumn_collection.dart'; earlier we updated to essential_collection? We did earlier change to essential_collection import. But in the latest main.dart content attached, top imports include 'package:union_shop/autumn_collection.dart'; I see initial lines: import 'package:union_shop/autumn_collection.dart'; So maybe not updated. The user now asks 
