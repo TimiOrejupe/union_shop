@@ -80,63 +80,64 @@ class HomeScreen extends StatelessWidget {
                         child: Container(
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
-                                'assets/images/university_shirt-man.png',
-                              ),
+                              image: AssetImage('assets/images/university_shirt-man.png'),
                               fit: BoxFit.cover,
                             ),
                           ),
                           child: Container(
                             decoration: BoxDecoration(
-                              // ignore: deprecated_member_use
                               color: Colors.black.withOpacity(0.7),
                             ),
                           ),
                         ),
                       ),
-                      // Content overlay
-                      Positioned(
-                        left: 24,
-                        right: 24,
-                        top: 80,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'Essential Range - Over 20% OFF!',
-                              style: TextStyle(
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                height: 1.2,
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            const Text(
-                              "Over 20% off our essential range. Come and Grab yours while stocks last! ",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                height: 1.5,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(height: 32),
-                            ElevatedButton(
-                              onPressed: placeholderCallbackForButtons,
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF4d2963),
-                                foregroundColor: Colors.white,
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.zero,
+
+                      // Centered content overlay
+                      Positioned.fill(
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Essential Range - Over 20% OFF!',
+                                  style: TextStyle(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    height: 1.2,
+                                  ),
                                 ),
-                              ),
-                              child: const Text(
-                                'BROWSE PRODUCTS',
-                                style: TextStyle(fontSize: 14, letterSpacing: 1),
-                              ),
+                                const SizedBox(height: 16),
+                                const Text(
+                                  "Over 20% off our essential range. Come and Grab yours while stocks last! ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    height: 1.5,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 32),
+                                ElevatedButton(
+                                  onPressed: placeholderCallbackForButtons,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xFF4d2963),
+                                    foregroundColor: Colors.white,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.zero,
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    'BROWSE PRODUCTS',
+                                    style: TextStyle(fontSize: 14, letterSpacing: 1),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ],

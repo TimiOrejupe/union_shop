@@ -20,142 +20,149 @@ class TopNavBar extends StatelessWidget {
           ),
         ),
         Container(
-          color: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          color: Colors.transparent,
           child: LayoutBuilder(
             builder: (context, constraints) {
               final isNarrow = constraints.maxWidth < 720;
-
-              Widget cartButton() {
-                return ValueListenableBuilder<List<Map<String, dynamic>>>(
-                  valueListenable: Cart.items,
-                  builder: (context, items, _) {
-                    final count = items.fold<int>(0, (acc, it) => acc + (it['quantity'] as int));
-                    return IconButton(
-                      tooltip: 'View basket',
-                      onPressed: () => Navigator.pushNamed(context, '/cart'),
-                      icon: Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          const Icon(Icons.shopping_bag_outlined, color: Colors.black),
-                          if (count > 0)
-                            Positioned(
-                              right: -6,
-                              top: -6,
-                              child: Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(10)),
-                                child: Text('$count', style: const TextStyle(color: Colors.white, fontSize: 10)),
-                              ),
-                            ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              }
-
-              if (isNarrow) {
-                return Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false),
-                      child: Image.network(
-                        'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                        height: 48,
-                        errorBuilder: (context, error, stackTrace) => Container(width: 48, height: 48, color: Colors.grey[200]),
-                      ),
-                    ),
-                    const Spacer(),
-                    // compact menu
-                    PopupMenuButton<int>(
-                      icon: const Icon(Icons.menu, color: Colors.black),
-                      onSelected: (v) {
-                        switch (v) {
-                          case 0:
-                            Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false);
-                            break;
-                          case 1:
-                            Navigator.pushNamed(context, '/collections');
-                            break;
-                          case 2:
-                            Navigator.pushNamed(context, '/print-shack/text');
-                            break;
-                          case 3:
-                            Navigator.pushNamed(context, '/print-shack/about');
-                            break;
-                          case 4:
-                            Navigator.pushNamed(context, '/collections/sale-items');
-                            break;
-                          case 5:
-                            Navigator.pushNamed(context, '/about');
-                            break;
-                        }
-                      },
-                      itemBuilder: (_) => const [
-                        PopupMenuItem(value: 0, child: Text('Home')),
-                        PopupMenuItem(value: 1, child: Text('Collections')),
-                        PopupMenuItem(value: 2, child: Text('Personalisation')),
-                        PopupMenuItem(value: 3, child: Text('Print Shack — About')),
-                        PopupMenuItem(value: 4, child: Text('SALE')),
-                        PopupMenuItem(value: 5, child: Text('About site')),
-                      ],
-                    ),
-                    const SizedBox(width: 8),
-                    cartButton(),
-                  ],
-                );
-              }
-
-              // Wide layout
-              return Row(
-                children: [
-                  GestureDetector(
-                    onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false),
-                    child: Image.network(
-                      'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                      height: 48,
-                      errorBuilder: (context, error, stackTrace) => Container(width: 48, height: 48, color: Colors.grey[200]),
-                    ),
-                  ),
-                  const Spacer(),
-                  // Make nav links horizontally scrollable to avoid overflow on small widths
-                  Expanded(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          TextButton(onPressed: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false), child: const Text('Home', style: TextStyle(color: Colors.black))),
-                          const SizedBox(width: 8),
-                          const ShopMenu(),
-                          const SizedBox(width: 8),
-                          PopupMenuButton<int>(
-                            tooltip: 'The Print Shack',
-                            onSelected: (v) {
-                              if (v == 0) Navigator.pushNamed(context, '/print-shack/about');
-                              if (v == 1) Navigator.pushNamed(context, '/print-shack/text');
-                            },
-                            itemBuilder: (_) => const [
-                              PopupMenuItem<int>(value: 0, child: Text('About')),
-                              PopupMenuItem<int>(value: 1, child: Text('Personalisation')),
+              // use transparent background on narrow screens so hero isn't blocked
+              // make the nav container transparent so it never blocks the hero
+              // restore white background for the nav so the header appears as before
+              return Container(
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                child: Builder(builder: (context) {
+                  Widget cartButton() {
+                    return ValueListenableBuilder<List<Map<String, dynamic>>>(
+                      valueListenable: Cart.items,
+                      builder: (context, items, _) {
+                        final count = items.fold<int>(0, (acc, it) => acc + (it['quantity'] as int));
+                        return IconButton(
+                          tooltip: 'View basket',
+                          onPressed: () => Navigator.pushNamed(context, '/cart'),
+                          icon: Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              const Icon(Icons.shopping_bag_outlined, color: Colors.black),
+                              if (count > 0)
+                                Positioned(
+                                  right: -6,
+                                  top: -6,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(10)),
+                                    child: Text('$count', style: const TextStyle(color: Colors.white, fontSize: 10)),
+                                  ),
+                                ),
                             ],
-                            child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: Text('The Print Shack', style: TextStyle(color: Colors.black))),
                           ),
-                          const SizedBox(width: 8),
-                          TextButton(onPressed: () => Navigator.pushNamed(context, '/collections/sale-items'), child: const Text('SALE!', style: TextStyle(color: Colors.black))),
-                          const SizedBox(width: 8),
-                          TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
-                          const SizedBox(width: 8),
-                          TextButton(onPressed: () => Navigator.pushNamed(context, '/collections'), child: const Text('Collections', style: TextStyle(color: Colors.black))),
-                          const SizedBox(width: 8),
-                        ],
+                        );
+                      },
+                    );
+                  }
+
+                  if (isNarrow) {
+                    return Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false),
+                          child: Image.network(
+                            'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                            height: 36,
+                            errorBuilder: (context, error, stackTrace) => Container(width: 48, height: 48, color: Colors.grey[200]),
+                          ),
+                        ),
+                        const Spacer(),
+                        // compact menu
+                        PopupMenuButton<int>(
+                          icon: const Icon(Icons.menu, color: Colors.black),
+                          onSelected: (v) {
+                            switch (v) {
+                              case 0:
+                                Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false);
+                                break;
+                              case 1:
+                                Navigator.pushNamed(context, '/collections');
+                                break;
+                              case 2:
+                                Navigator.pushNamed(context, '/print-shack/text');
+                                break;
+                              case 3:
+                                Navigator.pushNamed(context, '/print-shack/about');
+                                break;
+                              case 4:
+                                Navigator.pushNamed(context, '/collections/sale-items');
+                                break;
+                              case 5:
+                                Navigator.pushNamed(context, '/about');
+                                break;
+                            }
+                          },
+                          itemBuilder: (_) => const [
+                            PopupMenuItem(value: 0, child: Text('Home')),
+                            PopupMenuItem(value: 1, child: Text('Collections')),
+                            PopupMenuItem(value: 2, child: Text('Personalisation')),
+                            PopupMenuItem(value: 3, child: Text('Print Shack — About')),
+                            PopupMenuItem(value: 4, child: Text('SALE')),
+                            PopupMenuItem(value: 5, child: Text('About site')),
+                          ],
+                        ),
+                        const SizedBox(width: 8),
+                        cartButton(),
+                      ],
+                    );
+                  }
+
+                  // Wide layout
+                  return Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false),
+                        child: Image.network(
+                          'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                          height: 36,
+                          errorBuilder: (context, error, stackTrace) => Container(width: 48, height: 48, color: Colors.grey[200]),
+                        ),
                       ),
-                    ),
-                  ),
-                  const Spacer(),
-                  cartButton(),
-                ],
+                      const Spacer(),
+                      // Make nav links horizontally scrollable to avoid overflow on small widths
+                      Expanded(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              TextButton(onPressed: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false), child: const Text('Home', style: TextStyle(color: Colors.black))),
+                              const SizedBox(width: 8),
+                              const ShopMenu(),
+                              const SizedBox(width: 8),
+                              PopupMenuButton<int>(
+                                tooltip: 'The Print Shack',
+                                onSelected: (v) {
+                                  if (v == 0) Navigator.pushNamed(context, '/print-shack/about');
+                                  if (v == 1) Navigator.pushNamed(context, '/print-shack/text');
+                                },
+                                itemBuilder: (_) => const [
+                                  PopupMenuItem<int>(value: 0, child: Text('About')),
+                                  PopupMenuItem<int>(value: 1, child: Text('Personalisation')),
+                                ],
+                                child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                              ),
+                              const SizedBox(width: 8),
+                              TextButton(onPressed: () => Navigator.pushNamed(context, '/collections/sale-items'), child: const Text('SALE!', style: TextStyle(color: Colors.black))),
+                              const SizedBox(width: 8),
+                              TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
+                              const SizedBox(width: 8),
+                              TextButton(onPressed: () => Navigator.pushNamed(context, '/collections'), child: const Text('Collections', style: TextStyle(color: Colors.black))),
+                              const SizedBox(width: 8),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      cartButton(),
+                    ],
+                  );
+                }),
               );
             },
           ),
