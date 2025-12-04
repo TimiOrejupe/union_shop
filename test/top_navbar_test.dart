@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:union_shop/top_navbar.dart';
+import 'test_wrapper.dart';
 
 void main() {
   testWidgets('TopNavBar shows banner and navigation items on wide screen', (tester) async {
-    await tester.pumpWidget(const MaterialApp(
-      home: MediaQuery(
-        data: MediaQueryData(size: Size(1200, 800)),
-        child: Scaffold(body: TopNavBar()),
-      ),
-    ));
+    await tester.pumpWidget(wrapWithMaterial(const TopNavBar()));
+    await tester.pumpAndSettle();
 
     expect(find.textContaining('BIG SALE'), findsOneWidget);
     expect(find.text('Collections'), findsOneWidget);

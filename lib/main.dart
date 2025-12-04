@@ -84,8 +84,9 @@ class HomeScreen extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          child: Container(
-                            decoration: const BoxDecoration(
+                          child: Opacity(
+                            opacity: 0.4,
+                            child: Container(
                               color: Colors.black,
                             ),
                           ),
