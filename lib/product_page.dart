@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/cart_page.dart';
-import 'package:union_shop/top_navbar.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -166,9 +165,9 @@ class _ProductPageState extends State<ProductPage> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text(productTitle, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
+                                      const Text(productTitle, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
                                       const SizedBox(height: 8),
-                                      Text(productPrice, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xFF4d2963))),
+                                      const Text(productPrice, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xFF4d2963))),
                                       const SizedBox(height: 20),
 
                                       // Options
