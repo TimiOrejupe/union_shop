@@ -9,14 +9,14 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   final List<String> images = [
-    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+    'assets/images/university_t-shirt.png',
+    'assets/images/university_shirt-man.png',
+    'assets/images/university_t-shirt2.jpg',
   ];
 
   int selectedImage = 0;
   String selectedSize = 'M';
-  String selectedColor = 'Heather';
+  String selectedColor = 'Purple';
   int quantity = 1;
 
   void navigateToHome(BuildContext context) {
@@ -25,19 +25,19 @@ class _ProductPageState extends State<ProductPage> {
 
   void _addToCart() {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Added to cart (demo)')),
+      const SnackBar(content: Text('Added to cart ')),
     );
   }
 
   void _buyNow() {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Proceed to checkout (demo)')),
+      const SnackBar(content: Text('Proceed to checkout')),
     );
   }
 @override
   Widget build(BuildContext context) {
-    const productTitle = 'Classic Sweatshirt';
-    const productPrice = '£28.00';
+    const productTitle = 'University T-shirt';
+    const productPrice = '£10.00';
     final width = MediaQuery.of(context).size.width;
     final imageHeight = width > 1000 ? 480.0 : 300.0;
 
@@ -197,7 +197,7 @@ class _ProductPageState extends State<ProductPage> {
                                 DropdownButton<String>(
                                   value: selectedColor,
                                   isExpanded: true,
-                                  items: ['Heather', 'Charcoal', 'Navy'].map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
+                                  items: ['Purple', 'White', 'Navy'].map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
                                   onChanged: (v) => setState(() { if (v != null) selectedColor = v; }),
                                 ),
                               ],
@@ -262,7 +262,7 @@ class _ProductPageState extends State<ProductPage> {
                       const Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
                       const SizedBox(height: 8),
                       const Text(
-                        'A warm, durable classic sweatshirt with a soft brushed interior. Printed with University branding. Machine washable.',
+                        'A classic T-shirt. Printed with University branding. Machine washable.',
                         style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5),
                       ),
 
@@ -270,7 +270,7 @@ class _ProductPageState extends State<ProductPage> {
 
                       const Text('Product details', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
                       const SizedBox(height: 8),
-                      const Text('- 80% cotton / 20% polyester\n- Brushed inner fleece\n- Designed for everyday wear\n- Ethically sourced materials', style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5)),
+                      const Text('- 100% cotton \n- Designed for everyday wear\n- Ethically sourced materials', style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5)),
 
                       const SizedBox(height: 28),
 
@@ -281,7 +281,7 @@ class _ProductPageState extends State<ProductPage> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(6)),
-                        child: const Text('No reviews yet. This is a demo product page.'),
+                        child: const Text('No reviews yet.'),
                       ),
 
                       const SizedBox(height: 48),
