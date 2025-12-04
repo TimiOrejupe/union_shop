@@ -11,28 +11,28 @@ class CollectionsPage extends StatelessWidget {
       'route': '/autumn'
     },
     {
-      'title': 'Black Friday',
-      'image': 'https://shop.upsu.net/cdn/shop/files/BlackFridayPlaceholder.jpg',
+      'title': 'Graduation',
+      'image': 'assets/images/university_graduation.jpg',
     },
     {
-      'title': 'Clothing',
+      'title': 'Summer Vibes',
       'image':
-          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+          'assets/images/university_summer.jpg',
     },
     {
       'title': 'Hoodies',
       'image':
-          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+          'assets/images/university_hoodie.png',
     },
     {
-      'title': 'Accessories',
+      'title': 'stationery',
       'image':
-          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          'assets/images/university_stationary.jpg',
     },
     {
       'title': 'T-Shirts',
       'image':
-          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'
+          'assets/images/university_t-shirt.png',
     },
   ];
 
