@@ -115,7 +115,18 @@ class HomeScreen extends StatelessWidget {
                                 // Shop dropdown (desktop) / bottom-sheet (mobile)
                                 const ShopMenu(),
                                 const SizedBox(width: 8),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                                PopupMenuButton<int>(
+                                  tooltip: 'The Print Shack',
+                                  onSelected: (v) {
+                                    if (v == 0) Navigator.pushNamed(context, '/print-shack/about');
+                                    if (v == 1) Navigator.pushNamed(context, '/print-shack/text');
+                                  },
+                                  itemBuilder: (_) => const [
+                                    PopupMenuItem<int>(value: 0, child: Text('About')),
+                                    PopupMenuItem<int>(value: 1, child: Text('Personalisation')),
+                                  ],
+                                  child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                                ),
                                 const SizedBox(width: 8),
                                 TextButton(onPressed: placeholderCallbackForButtons, child: const Text('SALE!', style: TextStyle(color: Colors.black))),
                                 const SizedBox(width: 8),
