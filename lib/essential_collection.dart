@@ -6,23 +6,23 @@ class EssentialCollectionPage extends StatelessWidget {
   static const _products = [
     {
       'title': 'Essential Hoodie',
-      'price': '£35.00',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'
+      'price': '£15.00',
+      'image': 'assets/images/university_hoodie.png'
     },
     {
       'title': 'Essential T‑Shirt',
-      'price': '£18.00',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'
-    },
-    {
-      'title': 'Essential Cap',
-      'price': '£12.00',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282'
-    },
-    {
-      'title': 'Essential Scarf',
       'price': '£10.00',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561'
+      'image': 'assets/images/university_t-shirt2.jpg'
+    },
+    {
+      'title': 'Essential Joggers',
+      'price': '£12.00',
+      'image': 'assets/images/university_joggers.png'
+    },
+    {
+      'title': 'Essential Sweatshirt',
+      'price': '£15.00',
+      'image': 'assets/images/hoodies_sweatshirts.jpg'
     },
   ];
 
