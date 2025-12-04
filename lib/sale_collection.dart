@@ -6,28 +6,28 @@ class SaleCollectionPage extends StatelessWidget {
   static const _products = [
     {
       'title': 'Classic Sweatshirt',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+      'image': 'assets/images/hoodies_sweatshirts.jpg',
       'price': '£35.00',
       'sale': '£28.00',
       'badge': '20% OFF'
     },
     {
       'title': 'Campus Hoodie',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+      'image': 'assets/images/university_hoodie.png',
       'price': '£45.00',
       'sale': '£33.75',
       'badge': '25% OFF'
     },
     {
       'title': 'Branded T‑Shirt',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+      'image': 'assets/images/university_t-shirt.png',
       'price': '£20.00',
       'sale': '£14.00',
       'badge': '30% OFF'
     },
     {
-      'title': 'Autumn Cap',
-      'image': 'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+      'title': 'Joggers',
+      'image': 'assets/images/university_joggers.png',
       'price': '£12.00',
       'sale': '£9.60',
       'badge': '20% OFF'
