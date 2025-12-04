@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/cart_page.dart';
+import 'package:union_shop/top_navbar.dart';
 
 class PrintShackTextPage extends StatefulWidget {
   const PrintShackTextPage({super.key});
@@ -70,10 +71,7 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
     final placements = productPlacements[_product]!;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Print Shack — Personalise Text'),
-        backgroundColor: const Color(0xFF4d2963),
-      ),
+      appBar: AppBar(title: const Text('Print Shack — Personalise Text'), backgroundColor: const Color(0xFF4d2963)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(

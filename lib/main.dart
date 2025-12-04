@@ -9,6 +9,7 @@ import 'package:union_shop/shop_menu.dart';
 import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/print_shack_text.dart';
 import 'package:union_shop/print_shack_about.dart';
+import 'package:union_shop/top_navbar.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -67,82 +68,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 // Header
-                Container(
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      // Top banner
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                        color: const Color(0xFF4d2963),
-                        child: const Text(
-                          'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-
-                      // Header row with logo + centered nav
-                      Container(
-                        color: Colors.white,
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () => navigateToHome(context),
-                              child: Image.network(
-                                'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                                height: 48,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return Container(
-                                    width: 48,
-                                    height: 48,
-                                    color: Colors.grey[200],
-                                    child: const Icon(Icons.image_not_supported, color: Colors.grey),
-                                  );
-                                },
-                              ),
-                            ),
-
-                            const Spacer(),
-
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                TextButton(onPressed: () => navigateToHome(context), child: const Text('Home', style: TextStyle(color: Colors.black))),
-                                const SizedBox(width: 8),
-                                // Shop dropdown (desktop) / bottom-sheet (mobile)
-                                const ShopMenu(),
-                                const SizedBox(width: 8),
-                                PopupMenuButton<int>(
-                                  tooltip: 'The Print Shack',
-                                  onSelected: (v) {
-                                    if (v == 0) Navigator.pushNamed(context, '/print-shack/about');
-                                    if (v == 1) Navigator.pushNamed(context, '/print-shack/text');
-                                  },
-                                  itemBuilder: (_) => const [
-                                    PopupMenuItem<int>(value: 0, child: Text('About')),
-                                    PopupMenuItem<int>(value: 1, child: Text('Personalisation')),
-                                  ],
-                                  child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0), child: Text('The Print Shack', style: TextStyle(color: Colors.black))),
-                                ),
-                                const SizedBox(width: 8),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('SALE!', style: TextStyle(color: Colors.black))),
-                                const SizedBox(width: 8),
-                                TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
-                                const SizedBox(width: 8),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('UPSU.net', style: TextStyle(color: Colors.black))),
-                              ],
-                            ),
-
-                            const Spacer(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const TopNavBar(),
 
                 // Hero Section
                 SizedBox(
