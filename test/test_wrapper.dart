@@ -7,7 +7,9 @@ Widget wrapWithMaterial(Widget child) {
       child: SizedBox(
         width: 2000,
         height: 4000,
-        child: child,
+        child: Scaffold(
+          body: child,
+        ),
       ),
     ),
   );

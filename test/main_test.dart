@@ -5,24 +5,18 @@ import 'test_wrapper.dart';
 
 void main() {
   testWidgets('HomeScreen builds and renders', (tester) async {
-    final oldOnError = FlutterError.onError;
-    FlutterError.onError = (FlutterErrorDetails details) {};
-    try {
-      await tester.pumpWidget(wrapWithMaterial(const HomeScreen()));
-      await tester.pumpAndSettle();
+    await tester.pumpWidget(const MaterialApp(home: HomeScreen()));
+    await tester.pumpAndSettle();
 
-      final hasTarget = find.byType(HomeScreen).evaluate().isNotEmpty;
-      final hasScaffold = find.byType(Scaffold).evaluate().isNotEmpty;
-      expect(hasTarget || hasScaffold, isTrue);
-    } finally {
-      FlutterError.onError = oldOnError;
-    }
+    final hasTarget = find.byType(HomeScreen).evaluate().isNotEmpty;
+    final hasScaffold = find.byType(Scaffold).evaluate().isNotEmpty;
+    expect(hasTarget || hasScaffold, isTrue);
   });
 
   testWidgets('ProductCard builds and is present', (tester) async {
     await tester.pumpWidget(
       wrapWithMaterial(
-        const Scaffold(body: Center(child: ProductCard(title: 'T', price: '£0', imageUrl: 'assets/images/non_existent.png'))),
+        const Center(child: ProductCard(title: 'T', price: '£0', imageUrl: 'assets/images/non_existent.png')),
       ),
     );
     await tester.pumpAndSettle();

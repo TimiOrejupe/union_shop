@@ -120,10 +120,6 @@ class CollectionsPage extends StatelessWidget {
                             child: const Text('About',
                                 style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(
-                            onPressed: _placeholder,
-                            child: const Text('UPSU.net',
-                                style: TextStyle(color: Colors.black))),
                       ],
                     ),
                     const Spacer(),
