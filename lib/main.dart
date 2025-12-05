@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
@@ -57,7 +55,6 @@ class HomeScreen extends StatelessWidget {
   }
 
   void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
   }
 
   @override
@@ -71,7 +68,6 @@ class HomeScreen extends StatelessWidget {
               // Header
               const TopNavBar(),
 
-              // Make the main content scrollable but bounded by Expanded
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
