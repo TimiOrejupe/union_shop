@@ -6,7 +6,6 @@ class AboutUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: ListView(
         padding: EdgeInsets.zero,
@@ -32,7 +31,8 @@ class AboutUsPage extends StatelessWidget {
           ),
           // Main content - centered narrow column to match site
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 900),
@@ -40,65 +40,62 @@ class AboutUsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 8),
-
                     Text(
                       'Welcome to the Union Shop!',
                       style: TextStyle(fontSize: 16, color: Colors.black87),
                     ),
-
                     SizedBox(height: 20),
-
                     Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: 'We’re dedicated to giving you the very best University branded products, with a range of clothing and merchandise available to shop all year round! We even offer an exclusive ',
+                            text:
+                                'We’re dedicated to giving you the very best University branded products, with a range of clothing and merchandise available to shop all year round! We even offer an exclusive ',
                           ),
                           TextSpan(
                             text: 'personalisation service',
-                            style: TextStyle(decoration: TextDecoration.underline),
+                            style:
+                                TextStyle(decoration: TextDecoration.underline),
                           ),
                           TextSpan(text: '!'),
                         ],
                       ),
-                      style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 16, height: 1.9, color: Colors.grey),
                     ),
-
                     SizedBox(height: 20),
-
                     Text(
                       'All online purchases are available for delivery or instore collection!',
-                      style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 16, height: 1.9, color: Colors.grey),
                     ),
-
                     SizedBox(height: 20),
-
                     Text(
                       "We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don’t hesitate to contact us at ",
-                      style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 16, height: 1.9, color: Colors.grey),
                     ),
-
                     SizedBox(height: 6),
-
                     Text(
                       'hello@upsu.net',
-                      style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey, decoration: TextDecoration.underline),
+                      style: TextStyle(
+                          fontSize: 16,
+                          height: 1.9,
+                          color: Colors.grey,
+                          decoration: TextDecoration.underline),
                     ),
-
                     SizedBox(height: 20),
-
                     Text(
                       'Happy shopping!',
-                      style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 16, height: 1.9, color: Colors.grey),
                     ),
-
                     SizedBox(height: 20),
-
                     Text(
                       'The Union Shop & Reception Team',
-                      style: TextStyle(fontSize: 16, height: 1.9, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 16, height: 1.9, color: Colors.grey),
                     ),
-
                     SizedBox(height: 40),
                   ],
                 ),
@@ -116,45 +113,68 @@ class AboutUsPage extends StatelessWidget {
                 Widget openingHours = const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                    Text('Opening Hours',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700)),
                     SizedBox(height: 12),
-                    Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('❄️ Winter Break Closure Dates ❄️',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(height: 8),
-                    Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Closing 4pm 19/12/2025',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(height: 8),
-                    Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Reopening 10am 05/01/2026',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(height: 8),
-                    Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Last post date: 12pm on 18/12/2025',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(height: 12),
                     Text('-------------------------'),
                     SizedBox(height: 12),
-                    Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                    Text('(Term Time)',
+                        style: TextStyle(fontStyle: FontStyle.italic)),
                     SizedBox(height: 8),
-                    Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Monday - Friday 10am - 4pm',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(height: 12),
                     Text('(Outside of Term Time / Consolidation Weeks)'),
                     SizedBox(height: 8),
-                    Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Monday - Friday 10am - 3pm',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(height: 12),
-                    Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+                    Text('Purchase online 24/7',
+                        style: TextStyle(fontWeight: FontWeight.w600)),
                   ],
                 );
 
                 Widget helpInfo = Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                    const Text('Help and Information',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700)),
                     const SizedBox(height: 12),
-                    TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
-                    TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-                    TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text('Search',
+                            style: TextStyle(color: Colors.black))),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text('Terms & Conditions of Sale',
+                            style: TextStyle(color: Colors.black))),
+                    TextButton(
+                        onPressed: () {},
+                        child: const Text('Policy',
+                            style: TextStyle(color: Colors.black))),
                   ],
                 );
 
                 Widget latestOffers = Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                    const Text('Latest Offers',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700)),
                     const SizedBox(height: 12),
                     Row(
                       children: [
@@ -168,13 +188,17 @@ class AboutUsPage extends StatelessWidget {
                             ),
                             child: const Align(
                               alignment: Alignment.centerLeft,
-                              child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                              child: Text('Email address',
+                                  style: TextStyle(color: Colors.grey)),
                             ),
                           ),
                         ),
                         const SizedBox(width: 12),
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF4d2963),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 18, vertical: 12)),
                           onPressed: () {},
                           child: const Text('SUBSCRIBE'),
                         ),
@@ -211,6 +235,6 @@ class AboutUsPage extends StatelessWidget {
           ),
         ],
       ),
-    ); 
-   }
+    );
+  }
 }

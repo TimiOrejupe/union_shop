@@ -12,7 +12,7 @@ class ShopMenu extends StatelessWidget {
     'Pride Collection 🏳️‍🌈',
     'Graduation 🎓',
   ];
-   void _openMobileMenu(BuildContext context) {
+  void _openMobileMenu(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (c) {

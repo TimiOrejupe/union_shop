@@ -33,7 +33,8 @@ class UnionShopApp extends StatelessWidget {
         '/product': (context) => const ProductPage(),
         '/about': (context) => const AboutUsPage(),
         '/collections': (context) => const CollectionsPage(),
-        '/collections/essential-range': (context) => const EssentialCollectionPage(),
+        '/collections/essential-range': (context) =>
+            const EssentialCollectionPage(),
         '/collections/sale-items': (context) => const SaleCollectionPage(),
         '/auth': (context) => const AuthPage(),
         '/print-shack/text': (context) => const PrintShackTextPage(),
@@ -86,7 +87,8 @@ class HomeScreen extends StatelessWidget {
                               child: Container(
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage('assets/images/university_shirt-man.png'),
+                                    image: AssetImage(
+                                        'assets/images/university_shirt-man.png'),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -102,10 +104,12 @@ class HomeScreen extends StatelessWidget {
                             Positioned.fill(
                               child: Center(
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 24.0, vertical: 24.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       const Text(
                                         'Essential Range - Over 20% OFF!',
@@ -128,9 +132,11 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 32),
                                       ElevatedButton(
-                                        onPressed: placeholderCallbackForButtons,
+                                        onPressed:
+                                            placeholderCallbackForButtons,
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color(0xFF4d2963),
+                                          backgroundColor:
+                                              const Color(0xFF4d2963),
                                           foregroundColor: Colors.white,
                                           shape: const RoundedRectangleBorder(
                                             borderRadius: BorderRadius.zero,
@@ -138,7 +144,8 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                         child: const Text(
                                           'BROWSE PRODUCTS',
-                                          style: TextStyle(fontSize: 14, letterSpacing: 1),
+                                          style: TextStyle(
+                                              fontSize: 14, letterSpacing: 1),
                                         ),
                                       ),
                                     ],
@@ -170,7 +177,9 @@ class HomeScreen extends StatelessWidget {
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 crossAxisCount:
-                                    MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                                    MediaQuery.of(context).size.width > 600
+                                        ? 2
+                                        : 1,
                                 crossAxisSpacing: 24,
                                 mainAxisSpacing: 48,
                                 children: const [
@@ -209,73 +218,121 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         width: double.infinity,
                         color: Colors.grey[50],
-                        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 40, horizontal: 24),
                         child: LayoutBuilder(
                           builder: (context, constraints) {
                             final isNarrow = constraints.maxWidth < 800;
                             Widget openingHours = const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                                Text('Opening Hours',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700)),
                                 SizedBox(height: 12),
-                                Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('❄️ Winter Break Closure Dates ❄️',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                                 SizedBox(height: 8),
-                                Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('Closing 4pm 19/12/2025',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                                 SizedBox(height: 8),
-                                Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('Reopening 10am 05/01/2026',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                                 SizedBox(height: 8),
-                                Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('Last post date: 12pm on 18/12/2025',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                                 SizedBox(height: 12),
                                 Text('-------------------------'),
                                 SizedBox(height: 12),
-                                Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                                Text('(Term Time)',
+                                    style:
+                                        TextStyle(fontStyle: FontStyle.italic)),
                                 SizedBox(height: 8),
-                                Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('Monday - Friday 10am - 4pm',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                                 SizedBox(height: 12),
-                                Text('(Outside of Term Time / Consolidation Weeks)'),
+                                Text(
+                                    '(Outside of Term Time / Consolidation Weeks)'),
                                 SizedBox(height: 8),
-                                Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('Monday - Friday 10am - 3pm',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                                 SizedBox(height: 12),
-                                Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+                                Text('Purchase online 24/7',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w600)),
                               ],
                             );
 
                             Widget helpInfo = Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                                const Text('Help and Information',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700)),
                                 const SizedBox(height: 12),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Search', style: TextStyle(color: Colors.black))),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                                TextButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    child: const Text('Search',
+                                        style: TextStyle(color: Colors.black))),
+                                TextButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    child: const Text(
+                                        'Terms & Conditions of Sale',
+                                        style: TextStyle(color: Colors.black))),
+                                TextButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    child: const Text('Policy',
+                                        style: TextStyle(color: Colors.black))),
                               ],
                             );
 
                             Widget latestOffers = Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                                const Text('Latest Offers',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700)),
                                 const SizedBox(height: 12),
                                 Row(
                                   children: [
                                     Expanded(
                                       child: Container(
                                         height: 44,
-                                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 12),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          border: Border.all(color: Colors.grey.shade400),
+                                          border: Border.all(
+                                              color: Colors.grey.shade400),
                                         ),
                                         child: const Align(
                                           alignment: Alignment.centerLeft,
-                                          child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                                          child: Text('Email address',
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                         ),
                                       ),
                                     ),
                                     const SizedBox(width: 12),
                                     ElevatedButton(
-                                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                                      onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              const Color(0xFF4d2963),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 18, vertical: 12)),
+                                      onPressed: () =>
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  content: Text('Subscribed'))),
                                       child: const Text('SUBSCRIBE'),
                                     ),
                                   ],
@@ -358,7 +415,8 @@ class ProductCard extends StatelessWidget {
                         return Container(
                           color: Colors.grey[300],
                           child: const Center(
-                            child: Icon(Icons.image_not_supported, color: Colors.grey),
+                            child: Icon(Icons.image_not_supported,
+                                color: Colors.grey),
                           ),
                         );
                       },
@@ -373,7 +431,8 @@ class ProductCard extends StatelessWidget {
                       return Container(
                         color: Colors.grey[300],
                         child: const Center(
-                          child: Icon(Icons.image_not_supported, color: Colors.grey),
+                          child: Icon(Icons.image_not_supported,
+                              color: Colors.grey),
                         ),
                       );
                     },

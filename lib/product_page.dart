@@ -29,7 +29,8 @@ class _ProductPageState extends State<ProductPage> {
     const price = '£10.00';
     final image = images[selectedImage];
     Cart.addItem(title: title, price: price, image: image);
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('$title added to basket')));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('$title added to basket')));
   }
 
   void _buyNow() {
@@ -58,12 +59,14 @@ class _ProductPageState extends State<ProductPage> {
                 child: const Text(
                   'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
                 color: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 child: Row(
                   children: [
                     GestureDetector(
@@ -71,25 +74,44 @@ class _ProductPageState extends State<ProductPage> {
                       child: Image.network(
                         'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
                         height: 48,
-                        errorBuilder: (c, e, s) =>
-                            Container(width: 48, height: 48, color: Colors.grey[200]),
+                        errorBuilder: (c, e, s) => Container(
+                            width: 48, height: 48, color: Colors.grey[200]),
                       ),
                     ),
                     const Spacer(),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        TextButton(onPressed: () => navigateToHome(context), child: const Text('Home', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () => navigateToHome(context),
+                            child: const Text('Home',
+                                style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(onPressed: () {}, child: const Text('Shop', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('Shop',
+                                style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(onPressed: () {}, child: const Text('The Print Shack', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('The Print Shack',
+                                style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(onPressed: () {}, child: const Text('SALE!', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('SALE!',
+                                style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/about'),
+                            child: const Text('About',
+                                style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(onPressed: () {}, child: const Text('UPSU.net', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('UPSU.net',
+                                style: TextStyle(color: Colors.black))),
                       ],
                     ),
                     const Spacer(),
@@ -123,12 +145,22 @@ class _ProductPageState extends State<ProductPage> {
                                         height: imageHeight,
                                         child: PageView.builder(
                                           itemCount: images.length,
-                                          onPageChanged: (i) => setState(() => selectedImage = i),
-                                          controller: PageController(initialPage: selectedImage),
+                                          onPageChanged: (i) =>
+                                              setState(() => selectedImage = i),
+                                          controller: PageController(
+                                              initialPage: selectedImage),
                                           itemBuilder: (context, index) {
                                             return ClipRRect(
-                                              borderRadius: BorderRadius.circular(8),
-                                              child: Image.network(images[index], fit: BoxFit.cover, width: double.infinity, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              child: Image.network(
+                                                  images[index],
+                                                  fit: BoxFit.cover,
+                                                  width: double.infinity,
+                                                  errorBuilder: (c, e, s) =>
+                                                      Container(
+                                                          color: Colors
+                                                              .grey[200])),
                                             );
                                           },
                                         ),
@@ -139,16 +171,28 @@ class _ProductPageState extends State<ProductPage> {
                                         child: ListView.separated(
                                           scrollDirection: Axis.horizontal,
                                           itemCount: images.length,
-                                          separatorBuilder: (_, __) => const SizedBox(width: 12),
+                                          separatorBuilder: (_, __) =>
+                                              const SizedBox(width: 12),
                                           itemBuilder: (context, i) {
-                                            final isSelected = i == selectedImage;
+                                            final isSelected =
+                                                i == selectedImage;
                                             return GestureDetector(
-                                              onTap: () => setState(() => selectedImage = i),
+                                              onTap: () => setState(
+                                                  () => selectedImage = i),
                                               child: Opacity(
                                                 opacity: isSelected ? 1 : 0.6,
                                                 child: ClipRRect(
-                                                  borderRadius: BorderRadius.circular(4),
-                                                  child: Image.network(images[i], width: 72, height: 72, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
+                                                  borderRadius:
+                                                      BorderRadius.circular(4),
+                                                  child: Image.network(
+                                                      images[i],
+                                                      width: 72,
+                                                      height: 72,
+                                                      fit: BoxFit.cover,
+                                                      errorBuilder: (c, e, s) =>
+                                                          Container(
+                                                              color: Colors
+                                                                  .grey[200])),
                                                 ),
                                               ),
                                             );
@@ -163,69 +207,202 @@ class _ProductPageState extends State<ProductPage> {
                                 Expanded(
                                   flex: 3,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      const Text(productTitle, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
+                                      const Text(productTitle,
+                                          style: TextStyle(
+                                              fontSize: 28,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black)),
                                       const SizedBox(height: 8),
-                                      const Text(productPrice, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xFF4d2963))),
+                                      const Text(productPrice,
+                                          style: TextStyle(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w700,
+                                              color: Color(0xFF4d2963))),
                                       const SizedBox(height: 20),
 
                                       // Options
                                       Row(
                                         children: [
                                           Expanded(
-                                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                              const Text('Size', style: TextStyle(fontWeight: FontWeight.w600)),
-                                              const SizedBox(height: 6),
-                                              DropdownButton<String>(value: selectedSize, isExpanded: true, items: ['S', 'M', 'L', 'XL'].map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(), onChanged: (v) => setState(() { if (v != null) selectedSize = v; })),
-                                            ]),
+                                            child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  const Text('Size',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600)),
+                                                  const SizedBox(height: 6),
+                                                  DropdownButton<String>(
+                                                      value: selectedSize,
+                                                      isExpanded: true,
+                                                      items: [
+                                                        'S',
+                                                        'M',
+                                                        'L',
+                                                        'XL'
+                                                      ]
+                                                          .map((s) =>
+                                                              DropdownMenuItem(
+                                                                  value: s,
+                                                                  child:
+                                                                      Text(s)))
+                                                          .toList(),
+                                                      onChanged: (v) =>
+                                                          setState(() {
+                                                            if (v != null) {
+                                                              selectedSize = v;
+                                                            }
+                                                          })),
+                                                ]),
                                           ),
                                           const SizedBox(width: 16),
                                           Expanded(
-                                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                              const Text('Colour', style: TextStyle(fontWeight: FontWeight.w600)),
-                                              const SizedBox(height: 6),
-                                              DropdownButton<String>(value: selectedColor, isExpanded: true, items: ['Purple', 'White', 'Navy'].map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(), onChanged: (v) => setState(() { if (v != null) selectedColor = v; })),
-                                            ]),
+                                            child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  const Text('Colour',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w600)),
+                                                  const SizedBox(height: 6),
+                                                  DropdownButton<String>(
+                                                      value: selectedColor,
+                                                      isExpanded: true,
+                                                      items: [
+                                                        'Purple',
+                                                        'White',
+                                                        'Navy'
+                                                      ]
+                                                          .map((c) =>
+                                                              DropdownMenuItem(
+                                                                  value: c,
+                                                                  child:
+                                                                      Text(c)))
+                                                          .toList(),
+                                                      onChanged: (v) =>
+                                                          setState(() {
+                                                            if (v != null) {
+                                                              selectedColor = v;
+                                                            }
+                                                          })),
+                                                ]),
                                           ),
                                           const SizedBox(width: 16),
-                                          SizedBox(width: 120, child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                            const Text('Quantity', style: TextStyle(fontWeight: FontWeight.w600)),
-                                            const SizedBox(height: 6),
-                                            Row(children: [
-                                              IconButton(icon: const Icon(Icons.remove), onPressed: quantity > 1 ? () => setState(() => quantity--) : null),
-                                              Text('$quantity', style: const TextStyle(fontSize: 16)),
-                                              IconButton(icon: const Icon(Icons.add), onPressed: () => setState(() => quantity++)),
-                                            ]),
-                                          ])),
+                                          SizedBox(
+                                              width: 120,
+                                              child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    const Text('Quantity',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600)),
+                                                    const SizedBox(height: 6),
+                                                    Row(children: [
+                                                      IconButton(
+                                                          icon: const Icon(
+                                                              Icons.remove),
+                                                          onPressed: quantity >
+                                                                  1
+                                                              ? () => setState(
+                                                                  () =>
+                                                                      quantity--)
+                                                              : null),
+                                                      Text('$quantity',
+                                                          style:
+                                                              const TextStyle(
+                                                                  fontSize:
+                                                                      16)),
+                                                      IconButton(
+                                                          icon: const Icon(
+                                                              Icons.add),
+                                                          onPressed: () =>
+                                                              setState(() =>
+                                                                  quantity++)),
+                                                    ]),
+                                                  ])),
                                         ],
                                       ),
 
                                       const SizedBox(height: 18),
 
                                       Row(children: [
-                                        Expanded(child: ElevatedButton(onPressed: _addToCart, style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(vertical: 14)), child: const Text('ADD TO BASKET', style: TextStyle(fontSize: 16)))),
+                                        Expanded(
+                                            child: ElevatedButton(
+                                                onPressed: _addToCart,
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        const Color(0xFF4d2963),
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                        vertical: 14)),
+                                                child: const Text(
+                                                    'ADD TO BASKET',
+                                                    style: TextStyle(
+                                                        fontSize: 16)))),
                                         const SizedBox(width: 12),
-                                        Expanded(child: OutlinedButton(onPressed: _buyNow, style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 14)), child: const Text('BUY NOW', style: TextStyle(fontSize: 16, color: Colors.black)))),
+                                        Expanded(
+                                            child: OutlinedButton(
+                                                onPressed: _buyNow,
+                                                style: OutlinedButton.styleFrom(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                        vertical: 14)),
+                                                child: const Text('BUY NOW',
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        color: Colors.black)))),
                                       ]),
 
                                       const SizedBox(height: 28),
 
-                                      const Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                                      const Text('Description',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600)),
                                       const SizedBox(height: 8),
-                                      const Text('A classic T-shirt. Printed with University branding. Machine washable.', style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5)),
+                                      const Text(
+                                          'A classic T-shirt. Printed with University branding. Machine washable.',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.grey,
+                                              height: 1.5)),
 
                                       const SizedBox(height: 20),
-                                      const Text('Product details', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                                      const Text('Product details',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600)),
                                       const SizedBox(height: 8),
-                                      const Text('- 100% cotton \n- Designed for everyday wear\n- Ethically sourced materials', style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5)),
+                                      const Text(
+                                          '- 100% cotton \n- Designed for everyday wear\n- Ethically sourced materials',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.grey,
+                                              height: 1.5)),
 
                                       const SizedBox(height: 28),
 
-                                      const Text('Reviews', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                                      const Text('Reviews',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600)),
                                       const SizedBox(height: 8),
-                                      Container(width: double.infinity, padding: const EdgeInsets.all(16), decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(6)), child: const Text('No reviews yet.')),
-
+                                      Container(
+                                          width: double.infinity,
+                                          padding: const EdgeInsets.all(16),
+                                          decoration: BoxDecoration(
+                                              color: Colors.grey[100],
+                                              borderRadius:
+                                                  BorderRadius.circular(6)),
+                                          child: const Text('No reviews yet.')),
 
                                       const SizedBox(height: 48),
                                     ],
@@ -240,49 +417,222 @@ class _ProductPageState extends State<ProductPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               // Product title / price row
-                              const Text(productTitle, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
+                              const Text(productTitle,
+                                  style: TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
                               const SizedBox(height: 8),
-                              const Text(productPrice, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xFF4d2963))),
+                              const Text(productPrice,
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w700,
+                                      color: Color(0xFF4d2963))),
                               const SizedBox(height: 20),
 
-                              SizedBox(height: imageHeight, child: PageView.builder(itemCount: images.length, onPageChanged: (i) => setState(() => selectedImage = i), controller: PageController(initialPage: selectedImage), itemBuilder: (context, index) { return ClipRRect(borderRadius: BorderRadius.circular(8), child: Image.network(images[index], fit: BoxFit.cover, width: double.infinity, errorBuilder: (c, e, s) => Container(color: Colors.grey[200]))); })),
+                              SizedBox(
+                                  height: imageHeight,
+                                  child: PageView.builder(
+                                      itemCount: images.length,
+                                      onPageChanged: (i) =>
+                                          setState(() => selectedImage = i),
+                                      controller: PageController(
+                                          initialPage: selectedImage),
+                                      itemBuilder: (context, index) {
+                                        return ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            child: Image.network(images[index],
+                                                fit: BoxFit.cover,
+                                                width: double.infinity,
+                                                errorBuilder: (c, e, s) =>
+                                                    Container(
+                                                        color:
+                                                            Colors.grey[200])));
+                                      })),
 
                               const SizedBox(height: 12),
-                              SizedBox(height: 72, child: ListView.separated(scrollDirection: Axis.horizontal, itemCount: images.length, separatorBuilder: (_, __) => const SizedBox(width: 12), itemBuilder: (context, i) { final isSelected = i == selectedImage; return GestureDetector(onTap: () => setState(() => selectedImage = i), child: Opacity(opacity: isSelected ? 1 : 0.6, child: ClipRRect(borderRadius: BorderRadius.circular(4), child: Image.network(images[i], width: 72, height: 72, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200]))))); })),
+                              SizedBox(
+                                  height: 72,
+                                  child: ListView.separated(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: images.length,
+                                      separatorBuilder: (_, __) =>
+                                          const SizedBox(width: 12),
+                                      itemBuilder: (context, i) {
+                                        final isSelected = i == selectedImage;
+                                        return GestureDetector(
+                                            onTap: () => setState(
+                                                () => selectedImage = i),
+                                            child: Opacity(
+                                                opacity: isSelected ? 1 : 0.6,
+                                                child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            4),
+                                                    child: Image.network(
+                                                        images[i],
+                                                        width: 72,
+                                                        height: 72,
+                                                        fit: BoxFit.cover,
+                                                        errorBuilder: (c, e,
+                                                                s) =>
+                                                            Container(
+                                                                color: Colors
+                                                                        .grey[
+                                                                    200])))));
+                                      })),
 
                               const SizedBox(height: 20),
 
                               // Options row: Size, Color, Quantity
-                              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                                Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [const Text('Size', style: TextStyle(fontWeight: FontWeight.w600)), const SizedBox(height: 6), DropdownButton<String>(value: selectedSize, isExpanded: true, items: ['S', 'M', 'L', 'XL'].map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(), onChanged: (v) => setState(() { if (v != null) selectedSize = v; })),])),
-                                const SizedBox(width: 16),
-                                Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [const Text('Colour', style: TextStyle(fontWeight: FontWeight.w600)), const SizedBox(height: 6), DropdownButton<String>(value: selectedColor, isExpanded: true, items: ['Purple', 'White', 'Navy'].map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(), onChanged: (v) => setState(() { if (v != null) selectedColor = v; })),])),
-                                const SizedBox(width: 16),
-                                SizedBox(width: 120, child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [const Text('Quantity', style: TextStyle(fontWeight: FontWeight.w600)), const SizedBox(height: 6), Row(children: [IconButton(icon: const Icon(Icons.remove), onPressed: quantity > 1 ? () => setState(() => quantity--) : null), Text('$quantity', style: const TextStyle(fontSize: 16)), IconButton(icon: const Icon(Icons.add), onPressed: () => setState(() => quantity++)), ]),])),
-                              ]),
+                              Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                        child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                          const Text('Size',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w600)),
+                                          const SizedBox(height: 6),
+                                          DropdownButton<String>(
+                                              value: selectedSize,
+                                              isExpanded: true,
+                                              items: ['S', 'M', 'L', 'XL']
+                                                  .map((s) => DropdownMenuItem(
+                                                      value: s, child: Text(s)))
+                                                  .toList(),
+                                              onChanged: (v) => setState(() {
+                                                    if (v != null) {
+                                                      selectedSize = v;
+                                                    }
+                                                  })),
+                                        ])),
+                                    const SizedBox(width: 16),
+                                    Expanded(
+                                        child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                          const Text('Colour',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w600)),
+                                          const SizedBox(height: 6),
+                                          DropdownButton<String>(
+                                              value: selectedColor,
+                                              isExpanded: true,
+                                              items: ['Purple', 'White', 'Navy']
+                                                  .map((c) => DropdownMenuItem(
+                                                      value: c, child: Text(c)))
+                                                  .toList(),
+                                              onChanged: (v) => setState(() {
+                                                    if (v != null) {
+                                                      selectedColor = v;
+                                                    }
+                                                  })),
+                                        ])),
+                                    const SizedBox(width: 16),
+                                    SizedBox(
+                                        width: 120,
+                                        child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Text('Quantity',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w600)),
+                                              const SizedBox(height: 6),
+                                              Row(children: [
+                                                IconButton(
+                                                    icon: const Icon(
+                                                        Icons.remove),
+                                                    onPressed: quantity > 1
+                                                        ? () => setState(
+                                                            () => quantity--)
+                                                        : null),
+                                                Text('$quantity',
+                                                    style: const TextStyle(
+                                                        fontSize: 16)),
+                                                IconButton(
+                                                    icon: const Icon(Icons.add),
+                                                    onPressed: () => setState(
+                                                        () => quantity++)),
+                                              ]),
+                                            ])),
+                                  ]),
 
                               const SizedBox(height: 18),
 
                               // Action buttons
-                              Row(children: [Expanded(child: ElevatedButton(onPressed: _addToCart, style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(vertical: 14)), child: const Text('ADD TO BASKET', style: TextStyle(fontSize: 16)))), const SizedBox(width: 12), Expanded(child: OutlinedButton(onPressed: _buyNow, style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 14)), child: const Text('BUY NOW', style: TextStyle(fontSize: 16, color: Colors.black))))]),
+                              Row(children: [
+                                Expanded(
+                                    child: ElevatedButton(
+                                        onPressed: _addToCart,
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                const Color(0xFF4d2963),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 14)),
+                                        child: const Text('ADD TO BASKET',
+                                            style: TextStyle(fontSize: 16)))),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                    child: OutlinedButton(
+                                        onPressed: _buyNow,
+                                        style: OutlinedButton.styleFrom(
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 14)),
+                                        child: const Text('BUY NOW',
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.black))))
+                              ]),
 
                               const SizedBox(height: 28),
 
-                              const Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                              const Text('Description',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600)),
                               const SizedBox(height: 8),
-                              const Text('A classic T-shirt. Printed with University branding. Machine washable.', style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5)),
+                              const Text(
+                                  'A classic T-shirt. Printed with University branding. Machine washable.',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.grey,
+                                      height: 1.5)),
 
                               const SizedBox(height: 20),
-                              const Text('Product details', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                              const Text('Product details',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600)),
                               const SizedBox(height: 8),
-                              const Text('- 100% cotton \n- Designed for everyday wear\n- Ethically sourced materials', style: TextStyle(fontSize: 16, color: Colors.grey, height: 1.5)),
+                              const Text(
+                                  '- 100% cotton \n- Designed for everyday wear\n- Ethically sourced materials',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.grey,
+                                      height: 1.5)),
 
                               const SizedBox(height: 28),
 
-                              const Text('Reviews', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                              const Text('Reviews',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600)),
                               const SizedBox(height: 8),
-                              Container(width: double.infinity, padding: const EdgeInsets.all(16), decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(6)), child: const Text('No reviews yet.')),
-
+                              Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[100],
+                                      borderRadius: BorderRadius.circular(6)),
+                                  child: const Text('No reviews yet.')),
 
                               const SizedBox(height: 48),
                             ],
@@ -301,6 +651,3 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 }
-
-
-

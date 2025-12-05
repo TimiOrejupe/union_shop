@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:union_shop/top_navbar.dart';
 import 'package:union_shop/cart_page.dart';
@@ -35,7 +37,7 @@ class SaleCollectionPage extends StatelessWidget {
       'badge': '20% OFF'
     },
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -49,32 +51,44 @@ class SaleCollectionPage extends StatelessWidget {
               // Purple sale banner
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 color: const Color(0xFF4d2963),
                 child: const Text(
                   'SALE! Selected lines reduced — limited stock. Shop now.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
               const TopNavBar(),
 
               const SizedBox(height: 40),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1100),
                   child: const Column(
                     children: [
-                      Text('Sale Items', style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700, color: Colors.black87)),
+                      Text('Sale Items',
+                          style: TextStyle(
+                              fontSize: 34,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black87)),
                       SizedBox(height: 12),
-                      Text('Discounted prices across our favourite ranges. Limited sizes and stock — shop early!', textAlign: TextAlign.center, style: TextStyle(fontSize: 16, color: Colors.black54)),
+                      Text(
+                          'Discounted prices across our favourite ranges. Limited sizes and stock — shop early!',
+                          textAlign: TextAlign.center,
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.black54)),
                       SizedBox(height: 24),
                     ],
                   ),
                 ),
               ),
-Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1100),
@@ -96,13 +110,14 @@ Padding(
                   ),
                 ),
               ),
-const SizedBox(height: 48),
+              const SizedBox(height: 48),
 
               // Footer (same style used elsewhere)
               Container(
                 width: double.infinity,
                 color: Colors.grey[50],
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     final isNarrow = constraints.maxWidth < 800;
@@ -110,66 +125,97 @@ const SizedBox(height: 48),
                     Widget openingHours = const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        Text('Opening Hours',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700)),
                         SizedBox(height: 12),
-                        Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('❄️ Winter Break Closure Dates ❄️',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         SizedBox(height: 8),
-                        Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('Closing 4pm 19/12/2025',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         SizedBox(height: 8),
-                        Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('Reopening 10am 05/01/2026',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         SizedBox(height: 8),
-                        Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('Last post date: 12pm on 18/12/2025',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         SizedBox(height: 12),
                         Text('-------------------------'),
                         SizedBox(height: 12),
-                        Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                        Text('(Term Time)',
+                            style: TextStyle(fontStyle: FontStyle.italic)),
                         SizedBox(height: 8),
-                        Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('Monday - Friday 10am - 4pm',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         SizedBox(height: 12),
                         Text('(Outside of Term Time / Consolidation Weeks)'),
                         SizedBox(height: 8),
-                        Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('Monday - Friday 10am - 3pm',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         SizedBox(height: 12),
-                        Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+                        Text('Purchase online 24/7',
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                       ],
                     );
 
                     Widget helpInfo = Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        const Text('Help and Information',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 12),
-                        TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('Search',
+                                style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('Terms & Conditions of Sale',
+                                style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text('Policy',
+                                style: TextStyle(color: Colors.black))),
                       ],
                     );
 
                     Widget latestOffers = Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                        const Text('Latest Offers',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
                               child: Container(
                                 height: 44,
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  border: Border.all(color: Colors.grey.shade400),
+                                  border:
+                                      Border.all(color: Colors.grey.shade400),
                                 ),
                                 child: const Align(
                                   alignment: Alignment.centerLeft,
-                                  child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                                  child: Text('Email address',
+                                      style: TextStyle(color: Colors.grey)),
                                 ),
                               ),
                             ),
                             const SizedBox(width: 12),
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF4d2963),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 18, vertical: 12)),
+                              onPressed: () => ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                      content: Text('Subscribed'))),
                               child: const Text('SUBSCRIBE'),
                             ),
                           ],
@@ -232,7 +278,8 @@ class SaleProductTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Cart.addItem(title: title, price: salePrice, image: imageUrl);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title added to basket')));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('$title added to basket')));
       },
       child: AspectRatio(
         aspectRatio: 1,
@@ -242,20 +289,31 @@ class SaleProductTile extends StatelessWidget {
             children: [
               Positioned.fill(
                 child: imageUrl.startsWith('http')
-                    ? Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200]))
-                    : Image.asset(imageUrl, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey[200])),
+                    ? Image.network(imageUrl,
+                        fit: BoxFit.cover,
+                        errorBuilder: (c, e, s) =>
+                            Container(color: Colors.grey[200]))
+                    : Image.asset(imageUrl,
+                        fit: BoxFit.cover,
+                        errorBuilder: (c, e, s) =>
+                            Container(color: Colors.grey[200])),
               ),
               Positioned(
                 left: 8,
                 top: 8,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
                   color: const Color(0xFF4d2963),
-                  child: Text(badge, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)),
+                  child: Text(badge,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12)),
                 ),
               ),
-              // ignore: deprecated_member_use
-              Positioned.fill(child: Container(color: Colors.black.withOpacity(0.25))),
+              Positioned.fill(
+                  child: Container(color: Colors.black.withOpacity(0.25))),
               Positioned(
                 left: 12,
                 right: 12,
@@ -263,13 +321,23 @@ class SaleProductTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16)),
+                    Text(title,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16)),
                     const SizedBox(height: 6),
                     Row(
                       children: [
-                        Text(price, style: const TextStyle(color: Colors.white70, decoration: TextDecoration.lineThrough)),
+                        Text(price,
+                            style: const TextStyle(
+                                color: Colors.white70,
+                                decoration: TextDecoration.lineThrough)),
                         const SizedBox(width: 8),
-                        Text(salePrice, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+                        Text(salePrice,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800)),
                       ],
                     ),
                   ],

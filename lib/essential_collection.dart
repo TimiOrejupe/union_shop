@@ -33,7 +33,8 @@ class EssentialCollectionPage extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final crossAxisCount = width > 1000 ? 3 : (width > 600 ? 2 : 1);
 
-    void goBackToCollections() => Navigator.pushNamedAndRemoveUntil(context, '/collections', (r) => false);
+    void goBackToCollections() => Navigator.pushNamedAndRemoveUntil(
+        context, '/collections', (r) => false);
 
     return Scaffold(
       body: SafeArea(
@@ -56,7 +57,10 @@ class EssentialCollectionPage extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Text(
                           'ESSENTIAL RANGE',
-                          style: TextStyle(fontSize: 34, fontWeight: FontWeight.w700, color: Colors.grey[900]),
+                          style: TextStyle(
+                              fontSize: 34,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.grey[900]),
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -64,7 +68,8 @@ class EssentialCollectionPage extends StatelessWidget {
                         alignment: Alignment.center,
                         child: TextButton(
                           onPressed: goBackToCollections,
-                          child: const Text('← Back to Collections', style: TextStyle(color: Colors.black54)),
+                          child: const Text('← Back to Collections',
+                              style: TextStyle(color: Colors.black54)),
                         ),
                       ),
                       const SizedBox(height: 24),
@@ -98,22 +103,33 @@ class EssentialCollectionPage extends StatelessWidget {
                                 p['image']!,
                                 fit: BoxFit.cover,
                                 width: double.infinity,
-                                errorBuilder: (c, e, s) => Container(color: Colors.grey[200]),
+                                errorBuilder: (c, e, s) =>
+                                    Container(color: Colors.grey[200]),
                               ),
                             ),
                           ),
                           const SizedBox(height: 8),
-                          Text(p['title']!, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+                          Text(p['title']!,
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w600)),
                           const SizedBox(height: 4),
-                          Text(p['price']!, style: const TextStyle(color: Colors.grey)),
+                          Text(p['price']!,
+                              style: const TextStyle(color: Colors.grey)),
                           const SizedBox(height: 8),
                           ElevatedButton(
                             onPressed: () {
                               // lazy add to cart
-                              Cart.addItem(title: p['title']!, price: p['price']!, image: p['image']!);
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${p['title']} added to basket')));
+                              Cart.addItem(
+                                  title: p['title']!,
+                                  price: p['price']!,
+                                  image: p['image']!);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(
+                                          '${p['title']} added to basket')));
                             },
-                            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963)),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF4d2963)),
                             child: const Text('ADD TO BASKET'),
                           ),
                         ],
@@ -151,45 +167,65 @@ class _Footer extends StatelessWidget {
           Widget openingHours = const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              Text('Opening Hours',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
               SizedBox(height: 12),
-              Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('❄️ Winter Break Closure Dates ❄️',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 8),
-              Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Closing 4pm 19/12/2025',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 8),
-              Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Reopening 10am 05/01/2026',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 8),
-              Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Last post date: 12pm on 18/12/2025',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 12),
               Text('-------------------------'),
               SizedBox(height: 12),
-              Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+              Text('(Term Time)',
+                  style: TextStyle(fontStyle: FontStyle.italic)),
               SizedBox(height: 8),
-              Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Monday - Friday 10am - 4pm',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 12),
               Text('(Outside of Term Time / Consolidation Weeks)'),
               SizedBox(height: 8),
-              Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Monday - Friday 10am - 3pm',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 12),
-              Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Purchase online 24/7',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
             ],
           );
 
           Widget helpInfo = Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              const Text('Help and Information',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
               const SizedBox(height: 12),
-              TextButton(onPressed: () {}, child: const Text('Search', style: TextStyle(color: Colors.black))),
-              TextButton(onPressed: () {}, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-              TextButton(onPressed: () {}, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text('Search',
+                      style: TextStyle(color: Colors.black))),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text('Terms & Conditions of Sale',
+                      style: TextStyle(color: Colors.black))),
+              TextButton(
+                  onPressed: () {},
+                  child: const Text('Policy',
+                      style: TextStyle(color: Colors.black))),
             ],
           );
 
           Widget latestOffers = Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              const Text('Latest Offers',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
               const SizedBox(height: 12),
               Row(
                 children: [
@@ -203,14 +239,19 @@ class _Footer extends StatelessWidget {
                       ),
                       child: const Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                        child: Text('Email address',
+                            style: TextStyle(color: Colors.grey)),
                       ),
                     ),
                   ),
                   const SizedBox(width: 12),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4d2963),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 18, vertical: 12)),
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Subscribed'))),
                     child: const Text('SUBSCRIBE'),
                   ),
                 ],

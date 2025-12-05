@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class CollectionsPage extends StatelessWidget {
@@ -6,8 +8,7 @@ class CollectionsPage extends StatelessWidget {
   static const _collections = [
     {
       'title': 'ESSENTIAL RANGE',
-      'image':
-          'assets/images/university_shirt-man.png',
+      'image': 'assets/images/university_shirt-man.png',
       'route': '/collections/essential-range'
     },
     {
@@ -16,23 +17,19 @@ class CollectionsPage extends StatelessWidget {
     },
     {
       'title': 'Summer Vibes',
-      'image':
-          'assets/images/university_summer.jpg',
+      'image': 'assets/images/university_summer.jpg',
     },
     {
       'title': 'Hoodies',
-      'image':
-          'assets/images/university_hoodie.png',
+      'image': 'assets/images/university_hoodie.png',
     },
     {
       'title': 'stationery',
-      'image':
-          'assets/images/university_stationary.jpg',
+      'image': 'assets/images/university_stationary.jpg',
     },
     {
       'title': 'T-Shirts',
-      'image':
-          'assets/images/university_t-shirt.png',
+      'image': 'assets/images/university_t-shirt.png',
     },
   ];
 
@@ -112,11 +109,12 @@ class CollectionsPage extends StatelessWidget {
                         const SizedBox(width: 8),
                         TextButton(
                             onPressed: _placeholder,
-                            child:
-                                const Text('SALE!', style: TextStyle(color: Colors.black))),
+                            child: const Text('SALE!',
+                                style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
                         TextButton(
-                            onPressed: () => Navigator.pushNamed(context, '/about'),
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/about'),
                             child: const Text('About',
                                 style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
@@ -134,7 +132,9 @@ class CollectionsPage extends StatelessWidget {
                 child: Text(
                   'Collections',
                   style: TextStyle(
-                      fontSize: 34, fontWeight: FontWeight.w700, color: Colors.black87),
+                      fontSize: 34,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black87),
                 ),
               ),
 
@@ -178,8 +178,8 @@ class CollectionsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Opening Hours',
-                            style:
-                                TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700)),
                         SizedBox(height: 12),
                         Text('❄️ Winter Break Closure Dates ❄️',
                             style: TextStyle(fontWeight: FontWeight.w600)),
@@ -195,7 +195,8 @@ class CollectionsPage extends StatelessWidget {
                         SizedBox(height: 12),
                         Text('-------------------------'),
                         SizedBox(height: 12),
-                        Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                        Text('(Term Time)',
+                            style: TextStyle(fontStyle: FontStyle.italic)),
                         SizedBox(height: 8),
                         Text('Monday - Friday 10am - 4pm',
                             style: TextStyle(fontWeight: FontWeight.w600)),
@@ -214,12 +215,21 @@ class CollectionsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text('Help and Information',
-                            style:
-                                TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 12),
-                        TextButton(onPressed: _placeholder, child: const Text('Search', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: _placeholder, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: _placeholder, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: _placeholder,
+                            child: const Text('Search',
+                                style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: _placeholder,
+                            child: const Text('Terms & Conditions of Sale',
+                                style: TextStyle(color: Colors.black))),
+                        TextButton(
+                            onPressed: _placeholder,
+                            child: const Text('Policy',
+                                style: TextStyle(color: Colors.black))),
                       ],
                     );
 
@@ -227,29 +237,37 @@ class CollectionsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text('Latest Offers',
-                            style:
-                                TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700)),
                         const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
                               child: Container(
                                 height: 44,
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  border: Border.all(color: Colors.grey.shade400),
+                                  border:
+                                      Border.all(color: Colors.grey.shade400),
                                 ),
                                 child: const Align(
                                   alignment: Alignment.centerLeft,
-                                  child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                                  child: Text('Email address',
+                                      style: TextStyle(color: Colors.grey)),
                                 ),
                               ),
                             ),
                             const SizedBox(width: 12),
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF4d2963),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 18, vertical: 12)),
+                              onPressed: () => ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                      content: Text('Subscribed'))),
                               child: const Text('SUBSCRIBE'),
                             ),
                           ],
@@ -296,7 +314,8 @@ class CollectionTile extends StatelessWidget {
   final String imageUrl;
   final String? route;
 
-  const CollectionTile({super.key, required this.title, required this.imageUrl, this.route});
+  const CollectionTile(
+      {super.key, required this.title, required this.imageUrl, this.route});
 
   @override
   Widget build(BuildContext context) {
@@ -319,13 +338,17 @@ class CollectionTile extends StatelessWidget {
                   errorBuilder: (c, e, s) => Container(color: Colors.grey[200]),
                 ),
               ),
-              // ignore: deprecated_member_use
-              Positioned.fill(child: Container(color: Colors.black.withOpacity(0.35))),
+            
+              Positioned.fill(
+                  child: Container(color: Colors.black.withOpacity(0.35))),
               Center(
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w700),
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
             ],

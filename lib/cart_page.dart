@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class Cart {
   // Each item: {'title': String, 'price': double, 'image': String, 'quantity': int}
-  static final ValueNotifier<List<Map<String, dynamic>>> items = ValueNotifier([]);
+  static final ValueNotifier<List<Map<String, dynamic>>> items =
+      ValueNotifier([]);
 
   static double _parsePrice(dynamic price) {
     if (price is double) return price;
@@ -14,7 +15,8 @@ class Cart {
     return 0.0;
   }
 
-  static void addItem({required String title, required dynamic price, String? image}) {
+  static void addItem(
+      {required String title, required dynamic price, String? image}) {
     final list = items.value;
     final idx = list.indexWhere((e) => e['title'] == title);
     if (idx >= 0) {
@@ -94,24 +96,36 @@ class CartPage extends StatelessWidget {
                       return ListTile(
                         leading: it['image'] != null && it['image']!.isNotEmpty
                             ? (it['image']!.startsWith('assets/')
-                                ? Image.asset(it['image']!, width: 56, height: 56, fit: BoxFit.cover)
-                                : Image.network(it['image']!, width: 56, height: 56, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(width: 56, height: 56, color: Colors.grey[200])))
-                            : Container(width: 56, height: 56, color: Colors.grey[200]),
+                                ? Image.asset(it['image']!,
+                                    width: 56, height: 56, fit: BoxFit.cover)
+                                : Image.network(it['image']!,
+                                    width: 56,
+                                    height: 56,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (c, e, s) => Container(
+                                        width: 56,
+                                        height: 56,
+                                        color: Colors.grey[200])))
+                            : Container(
+                                width: 56, height: 56, color: Colors.grey[200]),
                         title: Text(it['title'] ?? ''),
-                        subtitle: Text('£${(it['price'] as double).toStringAsFixed(2)}'),
+                        subtitle: Text(
+                            '£${(it['price'] as double).toStringAsFixed(2)}'),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
                               icon: const Icon(Icons.remove_circle_outline),
                               onPressed: (it['quantity'] as int) > 1
-                                  ? () => Cart.updateQuantity(i, (it['quantity'] as int) - 1)
+                                  ? () => Cart.updateQuantity(
+                                      i, (it['quantity'] as int) - 1)
                                   : () => Cart.removeAt(i),
                             ),
                             Text('${it['quantity'] ?? 1}'),
                             IconButton(
                               icon: const Icon(Icons.add_circle_outline),
-                              onPressed: () => Cart.updateQuantity(i, (it['quantity'] as int) + 1),
+                              onPressed: () => Cart.updateQuantity(
+                                  i, (it['quantity'] as int) + 1),
                             ),
                           ],
                         ),
@@ -119,13 +133,14 @@ class CartPage extends StatelessWidget {
                     },
                   ),
                 ),
-
                 const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Subtotal', style: Theme.of(context).textTheme.titleMedium),
-                    Text('£${subtotal.toStringAsFixed(2)}', style: Theme.of(context).textTheme.titleMedium),
+                    Text('Subtotal',
+                        style: Theme.of(context).textTheme.titleMedium),
+                    Text('£${subtotal.toStringAsFixed(2)}',
+                        style: Theme.of(context).textTheme.titleMedium),
                   ],
                 ),
                 const SizedBox(height: 12),
@@ -133,15 +148,21 @@ class CartPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963)),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF4d2963)),
                         onPressed: () {
                           // demo checkout: place order and clear cart
-                          final count = items.fold<int>(0, (acc, it) => acc + (it['quantity'] as int));
+                          final count = items.fold<int>(
+                              0, (acc, it) => acc + (it['quantity'] as int));
                           Cart.clear();
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Order placed for $count items')));
-                          Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false);
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('Order placed for $count items')));
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, '/', (r) => false);
                         },
-                        child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('PLACE ORDER')),
+                        child: const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 14),
+                            child: Text('PLACE ORDER')),
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -149,9 +170,12 @@ class CartPage extends StatelessWidget {
                       child: OutlinedButton(
                         onPressed: () {
                           Cart.clear();
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Basket cleared')));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Basket cleared')));
                         },
-                        child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('CLEAR')),
+                        child: const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 14),
+                            child: Text('CLEAR')),
                       ),
                     ),
                   ],

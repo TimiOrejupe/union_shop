@@ -55,8 +55,12 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
     const price = '£12.00'; // demo fixed price
     final previewText = _textController.text.trim();
     const image = ''; // leave empty for demo
-    Cart.addItem(title: title + (previewText.isNotEmpty ? ' - $previewText' : ''), price: price, image: image);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title added to basket')));
+    Cart.addItem(
+        title: title + (previewText.isNotEmpty ? ' - $previewText' : ''),
+        price: price,
+        image: image);
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('$title added to basket')));
   }
 
   @override
@@ -70,23 +74,29 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
     final placements = productPlacements[_product]!;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Print Shack — Personalise Text'), backgroundColor: const Color(0xFF4d2963)),
+      appBar: AppBar(
+          title: const Text('Print Shack — Personalise Text'),
+          backgroundColor: const Color(0xFF4d2963)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Personalise text for your item', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+            const Text('Personalise text for your item',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
             const SizedBox(height: 12),
 
             // Product selector
             Row(
               children: [
-                const Text('Product:', style: TextStyle(fontWeight: FontWeight.w600)),
+                const Text('Product:',
+                    style: TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(width: 12),
                 DropdownButton<String>(
                   value: _product,
-                  items: productPlacements.keys.map((p) => DropdownMenuItem(value: p, child: Text(p))).toList(),
+                  items: productPlacements.keys
+                      .map((p) => DropdownMenuItem(value: p, child: Text(p)))
+                      .toList(),
                   onChanged: (v) {
                     if (v == null) return;
                     _product = v;
@@ -94,11 +104,14 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
                   },
                 ),
                 const SizedBox(width: 24),
-                const Text('Placement:', style: TextStyle(fontWeight: FontWeight.w600)),
+                const Text('Placement:',
+                    style: TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(width: 12),
                 DropdownButton<String>(
                   value: _placement,
-                  items: placements.map((p) => DropdownMenuItem(value: p, child: Text(p))).toList(),
+                  items: placements
+                      .map((p) => DropdownMenuItem(value: p, child: Text(p)))
+                      .toList(),
                   onChanged: (v) {
                     if (v == null) return;
                     setState(() => _placement = v);
@@ -112,22 +125,28 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
             // Font and color
             Row(
               children: [
-                const Text('Font:', style: TextStyle(fontWeight: FontWeight.w600)),
+                const Text('Font:',
+                    style: TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(width: 12),
                 DropdownButton<String>(
                   value: _font,
-                  items: _fonts.map((f) => DropdownMenuItem(value: f, child: Text(f))).toList(),
+                  items: _fonts
+                      .map((f) => DropdownMenuItem(value: f, child: Text(f)))
+                      .toList(),
                   onChanged: (v) {
                     if (v == null) return;
                     setState(() => _font = v);
                   },
                 ),
                 const SizedBox(width: 24),
-                const Text('Color:', style: TextStyle(fontWeight: FontWeight.w600)),
+                const Text('Color:',
+                    style: TextStyle(fontWeight: FontWeight.w600)),
                 const SizedBox(width: 12),
                 DropdownButton<String>(
                   value: _color,
-                  items: _colors.map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
+                  items: _colors
+                      .map((c) => DropdownMenuItem(value: c, child: Text(c)))
+                      .toList(),
                   onChanged: (v) {
                     if (v == null) return;
                     setState(() => _color = v);
@@ -142,25 +161,35 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
             TextField(
               controller: _textController,
               maxLength: _maxChars,
-              decoration: InputDecoration(labelText: 'Text to print (max $_maxChars chars)', border: const OutlineInputBorder()),
+              decoration: InputDecoration(
+                  labelText: 'Text to print (max $_maxChars chars)',
+                  border: const OutlineInputBorder()),
               onChanged: (v) => setState(() {}),
             ),
 
             const SizedBox(height: 20),
 
             // Live preview
-            const Text('Preview', style: TextStyle(fontWeight: FontWeight.w700)),
+            const Text('Preview',
+                style: TextStyle(fontWeight: FontWeight.w700)),
             const SizedBox(height: 12),
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(border: Border.all(color: Colors.grey.shade300)),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300)),
               child: Text(
-                _textController.text.isEmpty ? 'Your text will appear here' : _textController.text,
+                _textController.text.isEmpty
+                    ? 'Your text will appear here'
+                    : _textController.text,
                 style: TextStyle(
                   fontSize: 18,
-                  color: _color == 'Black' ? Colors.black : (_color == 'White' ? Colors.white : Colors.black87),
-                  fontFamily: _font == 'Serif' ? 'serif' : (_font == 'Monospace' ? 'monospace' : null),
+                  color: _color == 'Black'
+                      ? Colors.black
+                      : (_color == 'White' ? Colors.white : Colors.black87),
+                  fontFamily: _font == 'Serif'
+                      ? 'serif'
+                      : (_font == 'Monospace' ? 'monospace' : null),
                 ),
               ),
             ),
@@ -171,13 +200,21 @@ class _PrintShackTextPageState extends State<PrintShackTextPage> {
               children: [
                 ElevatedButton(
                   onPressed: _addToCart,
-                  style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963)),
-                  child: const Padding(padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), child: Text('Add to basket')),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF4d2963)),
+                  child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                      child: Text('Add to basket')),
                 ),
                 const SizedBox(width: 12),
                 OutlinedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/print-shack/about'),
-                  child: const Padding(padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), child: Text('About Print Shack')),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, '/print-shack/about'),
+                  child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                      child: Text('About Print Shack')),
                 ),
               ],
             ),

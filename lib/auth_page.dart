@@ -4,7 +4,8 @@ class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
 
   void _notImplemented(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Successful')));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text('Successful')));
   }
 
   Widget _header(BuildContext context) {
@@ -17,7 +18,8 @@ class AuthPage extends StatelessWidget {
           child: const Text(
             'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
           ),
         ),
         Container(
@@ -26,22 +28,33 @@ class AuthPage extends StatelessWidget {
           child: Row(
             children: [
               GestureDetector(
-                onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (r) => false),
+                onTap: () => Navigator.pushNamedAndRemoveUntil(
+                    context, '/', (r) => false),
                 child: Image.network(
                   'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
                   height: 48,
-                  errorBuilder: (c, e, s) => Container(width: 48, height: 48, color: Colors.grey[200]),
+                  errorBuilder: (c, e, s) =>
+                      Container(width: 48, height: 48, color: Colors.grey[200]),
                 ),
               ),
               const Spacer(),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  TextButton(onPressed: () => Navigator.pushNamed(context, '/'), child: const Text('Home', style: TextStyle(color: Colors.black))),
+                  TextButton(
+                      onPressed: () => Navigator.pushNamed(context, '/'),
+                      child: const Text('Home',
+                          style: TextStyle(color: Colors.black))),
                   const SizedBox(width: 8),
-                  TextButton(onPressed: () {}, child: const Text('Shop', style: TextStyle(color: Colors.black))),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text('Shop',
+                          style: TextStyle(color: Colors.black))),
                   const SizedBox(width: 8),
-                  TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About', style: TextStyle(color: Colors.black))),
+                  TextButton(
+                      onPressed: () => Navigator.pushNamed(context, '/about'),
+                      child: const Text('About',
+                          style: TextStyle(color: Colors.black))),
                 ],
               ),
               const Spacer(),
@@ -59,17 +72,32 @@ class AuthPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(height: 8),
-          const Text('Welcome back', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+          const Text('Welcome back',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
-          const Text('Sign in to your account', style: TextStyle(color: Colors.black54)),
+          const Text('Sign in to your account',
+              style: TextStyle(color: Colors.black54)),
           const SizedBox(height: 18),
-          const TextField(decoration: InputDecoration(labelText: 'Email address', border: OutlineInputBorder())),
+          const TextField(
+              decoration: InputDecoration(
+                  labelText: 'Email address', border: OutlineInputBorder())),
           const SizedBox(height: 12),
-          const TextField(obscureText: true, decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder())),
+          const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: 'Password', border: OutlineInputBorder())),
           const SizedBox(height: 12),
-          Align(alignment: Alignment.centerRight, child: TextButton(onPressed: () => _notImplemented(context), child: const Text('Forgot password?'))),
+          Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                  onPressed: () => _notImplemented(context),
+                  child: const Text('Forgot password?'))),
           const SizedBox(height: 12),
-          ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Sign in'))),
+          ElevatedButton(
+              onPressed: () => _notImplemented(context),
+              child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  child: Text('Sign in'))),
         ],
       ),
     );
@@ -82,19 +110,35 @@ class AuthPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(height: 8),
-          const Text('Create account', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+          const Text('Create account',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
-          const Text('Sign up to place orders, save addresses and more', style: TextStyle(color: Colors.black54)),
+          const Text('Sign up to place orders, save addresses and more',
+              style: TextStyle(color: Colors.black54)),
           const SizedBox(height: 18),
-          const TextField(decoration: InputDecoration(labelText: 'Full name', border: OutlineInputBorder())),
+          const TextField(
+              decoration: InputDecoration(
+                  labelText: 'Full name', border: OutlineInputBorder())),
           const SizedBox(height: 12),
-          const TextField(decoration: InputDecoration(labelText: 'Email address', border: OutlineInputBorder())),
+          const TextField(
+              decoration: InputDecoration(
+                  labelText: 'Email address', border: OutlineInputBorder())),
           const SizedBox(height: 12),
-          const TextField(obscureText: true, decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder())),
+          const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: 'Password', border: OutlineInputBorder())),
           const SizedBox(height: 12),
-          const TextField(obscureText: true, decoration: InputDecoration(labelText: 'Confirm password', border: OutlineInputBorder())),
+          const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: 'Confirm password', border: OutlineInputBorder())),
           const SizedBox(height: 16),
-          ElevatedButton(onPressed: () => _notImplemented(context), child: const Padding(padding: EdgeInsets.symmetric(vertical: 14), child: Text('Create account'))),
+          ElevatedButton(
+              onPressed: () => _notImplemented(context),
+              child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  child: Text('Create account'))),
         ],
       ),
     );
@@ -138,10 +182,11 @@ class AuthPage extends StatelessWidget {
               ),
             ),
             // Spacer removed so footer doesn't push content beyond screen height
-             // small footer note
+            // small footer note
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 18.0),
-              child: Text('By continuing you agree to the Terms & Conditions', style: TextStyle(color: Colors.grey[600], fontSize: 12)),
+              child: Text('By continuing you agree to the Terms & Conditions',
+                  style: TextStyle(color: Colors.grey[600], fontSize: 12)),
             ),
           ],
         ),
