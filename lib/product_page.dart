@@ -108,10 +108,6 @@ class _ProductPageState extends State<ProductPage> {
                             child: const Text('About',
                                 style: TextStyle(color: Colors.black))),
                         const SizedBox(width: 8),
-                        TextButton(
-                            onPressed: () {},
-                            child: const Text('UPSU.net',
-                                style: TextStyle(color: Colors.black))),
                       ],
                     ),
                     const Spacer(),
