@@ -85,14 +85,6 @@ The current cart implementation is in-memory and ephemeral. It is suitable for d
   - print_shack_about.dart
   - top_navbar.dart
 
-## Contributing
-
-Contributions are welcome. Open an issue describing the change, then create a PR. Keep changes focused, and ensure assets and routes remain consistent.
-
-## License
-
-Add a LICENSE file for your preferred license. This project does not include one by default.
-
----
-
-If you want, I can also add a minimal LICENSE, update pubspec.yaml to include assets automatically, or generate a CONTRIBUTING.md.
+## contact information 
+-Name: Timi Orejupe
+-Email: up2215360@myport.ac.uk
