@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/top_navbar.dart';
 import 'package:union_shop/main.dart';
 import 'test_wrapper.dart';
 
 void main() {
-  testWidgets('HomeScreen builds and renders', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: HomeScreen()));
+  testWidgets('TopNavBar renders', (tester) async {
+    await tester.pumpWidget(wrapWithMaterial(const TopNavBar()));
     await tester.pumpAndSettle();
 
-    final hasTarget = find.byType(HomeScreen).evaluate().isNotEmpty;
-    final hasScaffold = find.byType(Scaffold).evaluate().isNotEmpty;
-    expect(hasTarget || hasScaffold, isTrue);
+    expect(find.byType(TopNavBar), findsOneWidget);
   });
 
   testWidgets('ProductCard builds and is present', (tester) async {

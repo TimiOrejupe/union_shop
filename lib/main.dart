@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us.dart';
@@ -63,244 +65,252 @@ class HomeScreen extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: SafeArea(
-          child: ListView(
-            padding: EdgeInsets.zero,
+          child: Column(
             children: [
               // Header
               const TopNavBar(),
 
-              // Hero Section
-              SizedBox(
-                height: 400,
-                width: double.infinity,
-                child: Stack(
-                  children: [
-                    // Background image
-                    Positioned.fill(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/university_shirt-man.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.7),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    // Centered content overlay
-                    Positioned.fill(
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const Text(
-                                'Essential Range - Over 20% OFF!',
-                                style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  height: 1.2,
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              const Text(
-                                "Over 20% off our essential range. Come and Grab yours while stocks last! ",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  height: 1.5,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 32),
-                              ElevatedButton(
-                                onPressed: placeholderCallbackForButtons,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF4d2963),
-                                  foregroundColor: Colors.white,
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
+              // Make the main content scrollable but bounded by Expanded
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Hero Section
+                      SizedBox(
+                        height: 400,
+                        width: double.infinity,
+                        child: Stack(
+                          children: [
+                            // Background image
+                            Positioned.fill(
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/images/university_shirt-man.png'),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                child: const Text(
-                                  'BROWSE PRODUCTS',
-                                  style: TextStyle(fontSize: 14, letterSpacing: 1),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
                                 ),
+                              ),
+                            ),
+
+                            // Centered content overlay
+                            Positioned.fill(
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      const Text(
+                                        'Essential Range - Over 20% OFF!',
+                                        style: TextStyle(
+                                          fontSize: 32,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                          height: 1.2,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 16),
+                                      const Text(
+                                        "Over 20% off our essential range. Come and Grab yours while stocks last! ",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.white,
+                                          height: 1.5,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(height: 32),
+                                      ElevatedButton(
+                                        onPressed: placeholderCallbackForButtons,
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color(0xFF4d2963),
+                                          foregroundColor: Colors.white,
+                                          shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.zero,
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          'BROWSE PRODUCTS',
+                                          style: TextStyle(fontSize: 14, letterSpacing: 1),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Products Section
+                      Container(
+                        color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(40.0),
+                          child: Column(
+                            children: [
+                              const Text(
+                                'PRODUCTS SECTION',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  letterSpacing: 1,
+                                ),
+                              ),
+                              const SizedBox(height: 48),
+                              GridView.count(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                crossAxisCount:
+                                    MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                                crossAxisSpacing: 24,
+                                mainAxisSpacing: 48,
+                                children: const [
+                                  ProductCard(
+                                    title: 'University Hoodie',
+                                    price: '£15.00',
+                                    imageUrl:
+                                        'assets/images/university_hoodie.png',
+                                  ),
+                                  ProductCard(
+                                    title: 'University T-Shirt',
+                                    price: '£10.00',
+                                    imageUrl:
+                                        'assets/images/university_t-shirt.png',
+                                  ),
+                                  ProductCard(
+                                    title: 'University Lanyard',
+                                    price: '£7.00',
+                                    imageUrl:
+                                        'assets/images/university_lanyard.png',
+                                  ),
+                                  ProductCard(
+                                    title: 'University Joggers',
+                                    price: '£15.00',
+                                    imageUrl:
+                                        'assets/images/university_joggers.png',
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
 
-              // Products Section
-              Container(
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'PRODUCTS SECTION',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          letterSpacing: 1,
+                      // Footer
+                      Container(
+                        width: double.infinity,
+                        color: Colors.grey[50],
+                        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final isNarrow = constraints.maxWidth < 800;
+                            Widget openingHours = const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                                SizedBox(height: 12),
+                                Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
+                                SizedBox(height: 8),
+                                Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                                SizedBox(height: 8),
+                                Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
+                                SizedBox(height: 8),
+                                Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
+                                SizedBox(height: 12),
+                                Text('-------------------------'),
+                                SizedBox(height: 12),
+                                Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
+                                SizedBox(height: 8),
+                                Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                                SizedBox(height: 12),
+                                Text('(Outside of Term Time / Consolidation Weeks)'),
+                                SizedBox(height: 8),
+                                Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
+                                SizedBox(height: 12),
+                                Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
+                              ],
+                            );
+
+                            Widget helpInfo = Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                                const SizedBox(height: 12),
+                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Search', style: TextStyle(color: Colors.black))),
+                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
+                                TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Policy', style: TextStyle(color: Colors.black))),
+                              ],
+                            );
+
+                            Widget latestOffers = Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                                const SizedBox(height: 12),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        height: 44,
+                                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          border: Border.all(color: Colors.grey.shade400),
+                                        ),
+                                        child: const Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text('Email address', style: TextStyle(color: Colors.grey)),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
+                                      onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
+                                      child: const Text('SUBSCRIBE'),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            );
+
+                            if (isNarrow) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  openingHours,
+                                  const SizedBox(height: 24),
+                                  helpInfo,
+                                  const SizedBox(height: 24),
+                                  latestOffers,
+                                ],
+                              );
+                            }
+
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(child: openingHours),
+                                const SizedBox(width: 40),
+                                Expanded(child: helpInfo),
+                                const SizedBox(width: 40),
+                                Expanded(child: latestOffers),
+                              ],
+                            );
+                          },
                         ),
-                      ),
-                      const SizedBox(height: 48),
-                      GridView.count(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount:
-                            MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                        crossAxisSpacing: 24,
-                        mainAxisSpacing: 48,
-                        children: const [
-                          ProductCard(
-                            title: 'University Hoodie',
-                            price: '£15.00',
-                            imageUrl:
-                                'assets/images/university_hoodie.png',
-                          ),
-                          ProductCard(
-                            title: 'University T-Shirt',
-                            price: '£10.00',
-                            imageUrl:
-                                'assets/images/university_t-shirt.png',
-                          ),
-                          ProductCard(
-                            title: 'University Lanyard',
-                            price: '£7.00',
-                            imageUrl:
-                                'assets/images/university_lanyard.png',
-                          ),
-                          ProductCard(
-                            title: 'University Joggers',
-                            price: '£15.00',
-                            imageUrl:
-                                'assets/images/university_joggers.png',
-                          ),
-                        ],
                       ),
                     ],
                   ),
-                ),
-              ),
-
-              // Footer
-              Container(
-                width: double.infinity,
-                color: Colors.grey[50],
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    final isNarrow = constraints.maxWidth < 800;
-                    Widget openingHours = const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Opening Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                        SizedBox(height: 12),
-                        Text('❄️ Winter Break Closure Dates ❄️', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 8),
-                        Text('Closing 4pm 19/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 8),
-                        Text('Reopening 10am 05/01/2026', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 8),
-                        Text('Last post date: 12pm on 18/12/2025', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 12),
-                        Text('-------------------------'),
-                        SizedBox(height: 12),
-                        Text('(Term Time)', style: TextStyle(fontStyle: FontStyle.italic)),
-                        SizedBox(height: 8),
-                        Text('Monday - Friday 10am - 4pm', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 12),
-                        Text('(Outside of Term Time / Consolidation Weeks)'),
-                        SizedBox(height: 8),
-                        Text('Monday - Friday 10am - 3pm', style: TextStyle(fontWeight: FontWeight.w600)),
-                        SizedBox(height: 12),
-                        Text('Purchase online 24/7', style: TextStyle(fontWeight: FontWeight.w600)),
-                      ],
-                    );
-
-                    Widget helpInfo = Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Help and Information', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                        const SizedBox(height: 12),
-                        TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Search', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Terms & Conditions of Sale', style: TextStyle(color: Colors.black))),
-                        TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Policy', style: TextStyle(color: Colors.black))),
-                      ],
-                    );
-
-                    Widget latestOffers = Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Latest Offers', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                        const SizedBox(height: 12),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 44,
-                                padding: const EdgeInsets.symmetric(horizontal: 12),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(color: Colors.grey.shade400),
-                                ),
-                                child: const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text('Email address', style: TextStyle(color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF4d2963), padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12)),
-                              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Subscribed'))),
-                              child: const Text('SUBSCRIBE'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-
-                    if (isNarrow) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          openingHours,
-                          const SizedBox(height: 24),
-                          helpInfo,
-                          const SizedBox(height: 24),
-                          latestOffers,
-                        ],
-                      );
-                    }
-
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: openingHours),
-                        const SizedBox(width: 40),
-                        Expanded(child: helpInfo),
-                        const SizedBox(width: 40),
-                        Expanded(child: latestOffers),
-                      ],
-                    );
-                  },
                 ),
               ),
             ],

@@ -8,7 +8,14 @@ Widget wrapWithMaterial(Widget child) {
         width: 2000,
         height: 4000,
         child: Scaffold(
-          body: child,
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 4000),
+                child: child,
+              ),
+            ),
+          ),
         ),
       ),
     ),
